@@ -1,0 +1,14 @@
+{
+    "name": "mahatab/cptm-mr",
+    "description": "It's a wordpress custom post type manager plugin",
+    "type": "project",
+    "license": "GPL2",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Cptmmr\\":"Inc/"
+        }
+    }
+    
+}
