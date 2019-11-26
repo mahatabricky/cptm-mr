@@ -30,8 +30,8 @@ require_once plugin_dir_path(__FILE__).'/vendor/autoload.php';
 
 use Cptmmr\Init;
 
-// define('plugin_name',dirname(plugin_basename(__FILE__)));
-// define('plugin_assets',plugins_url(__FILE__, $plugin));
+ define('NAME',dirname(plugin_basename(__FILE__)));
+ define('ASSETS',plugins_url('assets/', __FILE__));
 
 $init = new Init();
 $init->initPlugin();

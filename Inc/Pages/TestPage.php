@@ -17,7 +17,7 @@ class TestPage {
     }
     
     public function admin_index(){
-           echo "this is test purpose";
+           echo NAME;
     }
 }
 ?>

@@ -15,7 +15,7 @@ class AdminPage{
     }
     
     public function admin_index(){
-           echo "this is Admin Page";
+           echo ASSETS;
     }
 }
 ?>
