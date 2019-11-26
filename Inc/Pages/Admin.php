@@ -3,6 +3,7 @@
  * @package cptm-mr
  */
 namespace Cptmmr\Pages;
+
 class Admin {
 
     public function register(){

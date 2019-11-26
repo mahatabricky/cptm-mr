@@ -3,6 +3,7 @@
  * @package cptm-mr
  */
 namespace Cptmmr\Base;
+
  class Deactivate {
   
     /**

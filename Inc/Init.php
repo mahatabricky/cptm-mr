@@ -17,6 +17,7 @@ final class Init {
             Base\Enqueue::class, // Register Enqueue class to load all scripts files
         ];
     }
+    
     /**
      *Loop through the classes ,initialized them
      *and call the register() method if it exixts
