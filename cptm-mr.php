@@ -25,51 +25,15 @@ if(!defined('ABSPATH')){
     die('hey , kiddo don\'t think over smart!!!');
 }
 
-if(file_exists(plugin_dir_path(__FILE__).'/vendor/autoload.php')){
-    require plugin_dir_path(__FILE__).'/vendor/autoload.php';
-   
-}
+require_once plugin_dir_path(__FILE__).'/vendor/autoload.php';
 
-class cptm{
-   // Path checking 
-   function activate(){
-    $dirname = dirname(__FILE__,1);
-    $plugin_dir_path = plugin_dir_path(__FILE__);
-    $plugin_dir_url = plugin_dir_url( __FILE__ );
-    $plugin_uri = plugins_url('uninstall.php',__FILE__);
-    $plugin_basename = plugin_basename(__FILE__);
 
-    echo "Directory Name : ".$dirname."<br>";
+use Cptmmr\Init;
+define('plugin_name',dirname(plugin_basename(__FILE__)));
+define('plugin_assets',plugins_url(__FILE__, $plugin));
+$init = new Init();
+$init->initPlugin();
 
-    echo "Plugin Directory Path : ". $plugin_dir_path."<br>";
 
-    echo "Plugin Directory URL : ". $plugin_dir_url."<br>";
-
-    echo "Plugin URI : ". $plugin_uri."<br>";
-
-    echo "Plugin Basename : ". $plugin_basename."<br>";
-   }
-   function deactivate(){
-    $dirname = dirname(__FILE__,1);
-    $plugin_dir_path = plugin_dir_path(__FILE__);
-    $plugin_dir_url = plugin_dir_url( __FILE__ );
-    $plugin_uri = plugins_url('uninstall.php',__FILE__);
-    $plugin_basename = plugin_basename(__FILE__);
-
-    echo "Directory Name : ".$dirname."<br>";
-
-    echo "Plugin Directory Path : ". $plugin_dir_path."<br>";
-
-    echo "Plugin Directory URL : ". $plugin_dir_url."<br>";
-
-    echo "Plugin URI : ". $plugin_uri."<br>";
-
-    echo "Plugin Basename : ". $plugin_basename."<br>";
-   }
-}
- $t = new cptm();
-register_activation_hook(__FILE__, array($t,'activate'));
-
-register_deactivation_hook(__FILE__, [$t,'deactivate']);
 
 ?>
