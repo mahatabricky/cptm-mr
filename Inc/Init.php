@@ -10,7 +10,7 @@ final class Init extends BaseController{
     public $plugin_name;
     
     public function initPlugin(){
-            $this->plugin_name = plugin_basename(__FILE__);
+            $this->register();
     }
 
     
