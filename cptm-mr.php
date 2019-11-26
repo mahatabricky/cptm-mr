@@ -69,6 +69,7 @@ class cptm{
 }
  $t = new cptm();
 register_activation_hook(__FILE__, array($t,'activate'));
+
 register_deactivation_hook(__FILE__, [$t,'deactivate']);
 
 ?>
