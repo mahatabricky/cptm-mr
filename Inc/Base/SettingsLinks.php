@@ -15,7 +15,6 @@ class SettingsLinks {
 
     /**
      * Main method to register class specific services
-     *
      * @return void
      */
     public function register()
