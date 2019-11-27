@@ -25,10 +25,31 @@ if(!defined('ABSPATH')){
     die('hey , kiddo don\'t think over smart!!!');
 }
 
+// Require Autoload file to use class automatically
 require_once dirname(__FILE__).'/vendor/autoload.php';
 
+// Define Constant
 define('PLUGIN_PATH',plugin_dir_path(__FILE__));
 define('PLUGIN_URL',plugin_dir_url(__FILE__));
+define('PLUGIN',plugin_basename(__FILE__));
+
+use Cptmmr\Base\Activate;
+use Cptmmr\Base\Deactivate;
+
+// Runs when Activate the plugin
+function cptmmrActivate(){
+   Activate::activate();
+}
+// Runs when deactivate the plugin
+function cptmmrDeactivate(){
+    Deactivate::deactivate();
+}
+
+register_activation_hook(__FILE__, 'cptmmrActivate');
+register_deactivation_hook(__FILE__, 'cptmmrDeactivate');
+
+
+// Starting to initialize the plugin
 
 if (class_exists('Cptmmr\\Init')){
     Cptmmr\Init::register_services();
