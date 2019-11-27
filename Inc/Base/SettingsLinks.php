@@ -4,24 +4,18 @@
  */
 namespace Cptmmr\Base;
 
-class SettingsLinks {
+use Cptmmr\Base\BaseController;
 
-    protected  $plugin;
-
-    public function __construct()
-    {
-        $this->plugin = PLUGIN;
-    }
-
-    /**
+class SettingsLinks extends BaseController
+{
+ /**
      * Main method to register class specific services
      * @return void
      */
     public function register()
     {
         add_filter("plugin_action_links_$this->plugin", array( $this,'settingLinks') );
-    }
-    
+    }    
     /**
      * Return settings links
      *

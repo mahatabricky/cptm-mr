@@ -4,7 +4,10 @@
  */
 namespace Cptmmr\Base;
 
- class Enqueue {
+use Cptmmr\Base\BaseController;
+
+ class Enqueue extends BaseController
+ {
      /**
       * Calling Wordpress Hook admin_enqueue_scripts for loading the wordpress 
       * Admin Scripts 
@@ -20,8 +23,8 @@ namespace Cptmmr\Base;
       */
 
       public function enqueue(){
-        wp_enqueue_style('mypluginstyle',PLUGIN_URL.'assets/css/mystyle.css');
-        wp_enqueue_script('mypluginscript',PLUGIN_URL.'assets/js/myscript.js');
+        wp_enqueue_style('mypluginstyle',$this->plugin_url.'assets/css/mystyle.css');
+        wp_enqueue_script('mypluginscript',$this->plugin_url.'assets/js/myscript.js');
       }
 
  }

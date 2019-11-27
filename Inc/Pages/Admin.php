@@ -3,8 +3,9 @@
  * @package cptm-mr
  */
 namespace Cptmmr\Pages;
-
-class Admin {
+use Cptmmr\Base\BaseController;
+class Admin extends BaseController
+{
 
     public function register(){
         add_action('admin_menu',array($this,'add_admin_pages'));
@@ -15,7 +16,7 @@ class Admin {
     }
     
     public function admin_index(){
-        require_once PLUGIN_PATH.'templates/Admin.php';
+        require_once $this->plugin_path.'templates/Admin.php';
     }
 }
 ?>

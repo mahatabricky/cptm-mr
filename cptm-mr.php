@@ -29,32 +29,21 @@ if(!defined('ABSPATH')){
 
 require_once dirname(__FILE__).'/vendor/autoload.php';
 
-// Define Constant
-
-define('PLUGIN_PATH',plugin_dir_path(__FILE__));
-define('PLUGIN_URL',plugin_dir_url(__FILE__));
-define('PLUGIN',plugin_basename(__FILE__));
-
-
-use Cptmmr\Base\Activate;
-use Cptmmr\Base\Deactivate;
-
 // Runs when Activate the plugin
-
 function cptmmrActivate(){
-   Activate::activate();
-}
-// Runs when deactivate the plugin
-
-function cptmmrDeactivate(){
-    Deactivate::deactivate();
+   Cptmmr\Base\Activate::activate();
 }
 
 register_activation_hook(__FILE__, 'cptmmrActivate');
+
+// Runs when deactivate the plugin
+function cptmmrDeactivate(){
+    Cptmmr\Base\Deactivate::deactivate();
+}
 register_deactivation_hook(__FILE__, 'cptmmrDeactivate');
 
 
-// Starting to initialize the plugin
+// Start to initialize the plugin
 
 if (class_exists('Cptmmr\\Init')){
     Cptmmr\Init::register_services();
