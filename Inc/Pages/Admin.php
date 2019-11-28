@@ -3,20 +3,40 @@
  * @package cptm-mr
  */
 namespace Cptmmr\Pages;
+
 use Cptmmr\Base\BaseController;
+use Cptmmr\Api\SettingsApi;
+
 class Admin extends BaseController
 {
+    private $settings;
 
-    public function register(){
-        add_action('admin_menu',array($this,'add_admin_pages'));
-    }
+    private $pages = array();
 
-    public function add_admin_pages(){
-        add_menu_page('Cptmmr Plugin','CPTMMR Plugin','manage_options','cptmmr_plugin',array($this,'admin_index'),'dashicons-store',110);
-    }
+    private $subpages  = array();
+
+    public function __construct()
+    {
+        $this->settings = new SettingsApi ();
+        $this->pages = array( 
+                 array(
+                    'page_title' => 'Cptmmr Plugin',
+                    'menu_title' => 'CPTMMR Plugin',
+                    'capability' => 'manage_options',
+                    'menu_slug'  => 'cptmmr_plugin',
+                    'callback'   => function(){ echo 'this is it ';},
+                    'icon_url'   => 'dashicons-store',
+                    'position'  => '110',
+                 ),
+            );
     
-    public function admin_index(){
-        require_once $this->plugin_path.'templates/Admin.php';
     }
+
+    public function register()
+    {
+
+        $this->settings->addPages( $this->pages )->withSubPages( 'Dashboard' )->register();
+    }
+
 }
 ?>

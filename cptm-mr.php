@@ -40,6 +40,7 @@ register_activation_hook(__FILE__, 'cptmmrActivate');
 function cptmmrDeactivate(){
     Cptmmr\Base\Deactivate::deactivate();
 }
+
 register_deactivation_hook(__FILE__, 'cptmmrDeactivate');
 
 
