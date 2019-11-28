@@ -23,11 +23,35 @@ class SettingsApi
        return $this;
    }
 
-   public function withSubPages( $tile = null )
+   public function withSubPages( string $tile = null )
    {
-      $this->admin_subpages = $tile;
+      if( empty( $this->admin_pages)){
+          return $this;
+      }  
+    
+      $admin_pages = $this->admin_pages[0]; 
+
+      $subpages = array(
+          array(
+            'parent_slug'=> $admin_pages['menu_slug'],  
+            'page_title' => $admin_pages['page_title'],
+            'menu_title' => $admin_pages['menu_title'],
+            'capability' => $admin_pages['capability'],
+            'menu_slug'  => $admin_pages['menu_slug'],
+            'callback'   => $admin_pages['callback']
+          ),
+      );
+
+      $this->admin_subpages = $subpages;
 
       return $this;
+   }
+
+   public function addSubPages ( $page )
+   {
+       $this->admin_subpages = array_merge( $this->admin_subpages, $page);
+
+       return $this;
    }
 
    public function addAdminMenu()
@@ -36,8 +60,8 @@ class SettingsApi
            add_menu_page($page['page_title'], $page['menu_title'], $page['capability'], $page['menu_slug'], $page['callback'], $page['icon_url'], $page['position']);
        }
 
-       foreach( $this->admin_subpages as $subpage ){
-           add_submenu_page($subpage['parent_slug'], $subpage['page_title'], $subpage['menu_title'], $subpage['capability'], $subpage['menu_slug'], $subpage['callback']);
+       foreach( $this->admin_subpages as $page ){
+           add_submenu_page($page['parent_slug'], $page['page_title'], $page['menu_title'], $page['capability'], $page['menu_slug'], $page['callback']);
        }
    }
 }
