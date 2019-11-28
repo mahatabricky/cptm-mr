@@ -42,7 +42,7 @@ class SettingsApi
           ),
       );
 
-      $this->admin_subpages = $subpages;
+     $this->admin_subpages = $subpages;
 
       return $this;
    }

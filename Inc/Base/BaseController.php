@@ -2,7 +2,9 @@
 /**
  * @package cptm-mr
  */
-
+/**
+ * Base Controller holds the common data for plugin structure
+ */
  namespace Cptmmr\Base;
 
  class BaseController {

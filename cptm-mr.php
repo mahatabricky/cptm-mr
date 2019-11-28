@@ -30,6 +30,7 @@ if(!defined('ABSPATH')){
 require_once dirname(__FILE__).'/vendor/autoload.php';
 
 // Runs when Activate the plugin
+
 function cptmmrActivate(){
    Cptmmr\Base\Activate::activate();
 }
@@ -37,6 +38,7 @@ function cptmmrActivate(){
 register_activation_hook(__FILE__, 'cptmmrActivate');
 
 // Runs when deactivate the plugin
+
 function cptmmrDeactivate(){
     Cptmmr\Base\Deactivate::deactivate();
 }

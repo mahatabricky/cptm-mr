@@ -1,3 +1,3 @@
 <?php 
- echo "<h1>hello there </h1>";
+ echo "<h1>Plugin Dashboard </h1>";
 ?>
