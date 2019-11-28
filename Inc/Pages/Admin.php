@@ -109,7 +109,7 @@ class Admin extends BaseController
                 'menu_title'  => 'CPT Manager',
                 'capability'  => 'manage_options',
                 'menu_slug'   => 'cpt_manager',
-                'callback'    => function (){ echo "<h2>CPT Manager</h2>";}  
+                'callback'    => array($this->callbacks,'cptTemplates')  
             ),
             array(
                 'parent_slug' => 'cptmmr_plugin',
@@ -117,7 +117,7 @@ class Admin extends BaseController
                 'menu_title'  => 'Taxonomies',
                 'capability'  => 'manage_options',
                 'menu_slug'   => 'taxonomies_manager',
-                'callback'    => function (){ echo "<h2>Taxonomies Manager</h2>";}  
+                'callback'    => array($this->callbacks,'taxonomiesTemplates')  
             ),
             array(
                 'parent_slug' => 'cptmmr_plugin',
@@ -125,7 +125,7 @@ class Admin extends BaseController
                 'menu_title'  => 'Widget',
                 'capability'  => 'manage_options',
                 'menu_slug'   => 'widget_manager',
-                'callback'    => function (){ echo "<h2>Widget Managaer</h2>";}  
+                'callback'    => array($this->callbacks,'widgetTemplates')  
             ),
         );    
     }

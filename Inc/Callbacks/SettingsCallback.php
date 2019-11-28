@@ -25,7 +25,7 @@ use Cptmmr\Base\BaseController;
 
      public function cptTemplates()
      {
-         require_once "$this->plugin./templates/Cpt.php";
+         require_once "$this->plugin_path./templates/Cpt.php";
      }
 
       /**
@@ -34,7 +34,7 @@ use Cptmmr\Base\BaseController;
 
       public function taxonomiesTemplates()
       {
-          require_once "$this->plugin./templates/taxonomydashboard.php";
+          require_once "$this->plugin_path./templates/taxonomydashboard.php";
       }
       
       /**
@@ -43,7 +43,7 @@ use Cptmmr\Base\BaseController;
 
       public function widgetTemplates()
       {
-          require_once "$this->plugin./templates/widgetdashboard.php";
+          require_once "$this->plugin_path./templates/widgetdashboard.php";
       }
 
  }
