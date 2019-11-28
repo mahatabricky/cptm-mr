@@ -7,86 +7,37 @@ namespace Cptmmr\Pages;
 
 use Cptmmr\Api\SettingsApi;
 use Cptmmr\Base\BaseController;
-use Cptmmr\Callbacks\SettingsCallback;
+use Cptmmr\Callbacks\AdminCallbacks;
 
 class Admin extends BaseController
 {
-    private  $settings;
+    public  $settings;
 
-    private $pages = array();
+    public $pages = array();
 
-    private $subpages  = array();
+    public $subpages  = array();
 
-    private $callbacks;
-
-    public function __construct()
-    {
-        $this->callbacks = new SettingsCallback();
-    }
-
-    // public function __construct()
-    // {
-    //     $this->settings = new SettingsApi ();
-        
-    //     $this->pages = array( 
-    //              array(
-    //                 'page_title' => 'Cptmmr',
-    //                 'menu_title' => 'CPTMMR',
-    //                 'capability' => 'manage_options',
-    //                 'menu_slug'  => 'cptmmr_plugin',
-    //                 'callback'   => function(){ echo '<h1>Plugin Dashboard </h1>' ;},
-    //                 'icon_url'   => 'dashicons-store',
-    //                 'position'  => '110',
-    //              ),
-    //         );
-
-    //     $this->subpages = array(
-    //                 array(
-    //                     'parent_slug' => 'cptmmr_plugin',
-    //                     'page_title'  => 'Custom Post Type',
-    //                     'menu_title'  => 'CPT Manager',
-    //                     'capability'  => 'manage_options',
-    //                     'menu_slug'   => 'cpt_manager',
-    //                     'callback'    => function (){ echo "<h2>CPT Manager</h2>";}  
-    //                 ),
-    //                 array(
-    //                     'parent_slug' => 'cptmmr_plugin',
-    //                     'page_title'  => 'Taxonomies Manager',
-    //                     'menu_title'  => 'Taxonomies',
-    //                     'capability'  => 'manage_options',
-    //                     'menu_slug'   => 'taxonomies_manager',
-    //                     'callback'    => function (){ echo "<h2>Taxonomies Manager</h2>";}  
-    //                 ),
-    //                 array(
-    //                     'parent_slug' => 'cptmmr_plugin',
-    //                     'page_title'  => 'Widget Managaer',
-    //                     'menu_title'  => 'Widget',
-    //                     'capability'  => 'manage_options',
-    //                     'menu_slug'   => 'widget_manager',
-    //                     'callback'    => function (){ echo "<h2>Widget Managaer</h2>";}  
-    //                 ),
-    //             );    
-    
-    // }
-
+    public $callbacks;
    
     public function register()
     {
 
         $this->settings = new SettingsApi ();
 
-        $this->pages = $this->addAdminPages();
+        $this->callbacks = new AdminCallbacks();
 
-        $this->subpages = $this->addAdminSubPages();
+         $this->setPages();
+
+         $this->setSubPages();
 
         $this->settings->addPages( $this->pages )->withSubPages( 'Dashboard' )->addSubPages( $this->subpages )->register();
     }
 
 
-    public function addAdminPages()
+    public function setPages()
     {
     
-       return $pages = array( 
+         $this->pages = array( 
             array(
                'page_title' => 'Cptmmr',
                'menu_title' => 'CPTMMR',
@@ -99,10 +50,10 @@ class Admin extends BaseController
        );
     }
 
-    public function addAdminSubPages()
+    public function setSubPages()
     {
 
-        return $subpages = array(
+         $this->subpages = array(
             array(
                 'parent_slug' => 'cptmmr_plugin',
                 'page_title'  => 'Custom Post Type',

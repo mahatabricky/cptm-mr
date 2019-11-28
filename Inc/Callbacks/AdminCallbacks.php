@@ -6,7 +6,7 @@ namespace Cptmmr\Callbacks;
 
 use Cptmmr\Base\BaseController;
 
- class SettingsCallback extends BaseController
+ class AdminCallbacks extends BaseController
  {
      
     /**
@@ -16,7 +16,7 @@ use Cptmmr\Base\BaseController;
      */
     public function dashboardTemplates()
      {
-         require_once "$this->plugin_path./templates/admin.php";
+         return require_once "$this->plugin_path./templates/admin.php";
      }
 
      /**
@@ -25,7 +25,7 @@ use Cptmmr\Base\BaseController;
 
      public function cptTemplates()
      {
-         require_once "$this->plugin_path./templates/Cpt.php";
+        return require_once "$this->plugin_path./templates/Cpt.php";
      }
 
       /**
@@ -34,7 +34,7 @@ use Cptmmr\Base\BaseController;
 
       public function taxonomiesTemplates()
       {
-          require_once "$this->plugin_path./templates/taxonomydashboard.php";
+          return require_once "$this->plugin_path./templates/taxonomydashboard.php";
       }
       
       /**
@@ -43,7 +43,7 @@ use Cptmmr\Base\BaseController;
 
       public function widgetTemplates()
       {
-          require_once "$this->plugin_path./templates/widgetdashboard.php";
+          return require_once "$this->plugin_path./templates/widgetdashboard.php";
       }
 
  }
