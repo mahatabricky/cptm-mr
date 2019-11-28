@@ -23,7 +23,7 @@ class SettingsApi
        return $this;
    }
 
-   public function withSubPages( string $tile = null )
+   public function withSubPages( string $title = null )
    {
       if( empty( $this->admin_pages)){
           return $this;
@@ -35,7 +35,7 @@ class SettingsApi
           array(
             'parent_slug'=> $admin_pages['menu_slug'],  
             'page_title' => $admin_pages['page_title'],
-            'menu_title' => $admin_pages['menu_title'],
+            'menu_title' => ($title) ? $title : $admin_pages['menu_title'],
             'capability' => $admin_pages['capability'],
             'menu_slug'  => $admin_pages['menu_slug'],
             'callback'   => $admin_pages['callback']

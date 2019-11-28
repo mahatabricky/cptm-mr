@@ -24,7 +24,7 @@ class Admin extends BaseController
                     'menu_title' => 'CPTMMR',
                     'capability' => 'manage_options',
                     'menu_slug'  => 'cptmmr_plugin',
-                    'callback'   => function(){ echo '<h1>this is main page </h1>' ;},
+                    'callback'   => function(){ echo '<h1>Plugin Dashboard </h1>' ;},
                     'icon_url'   => 'dashicons-store',
                     'position'  => '110',
                  ),
