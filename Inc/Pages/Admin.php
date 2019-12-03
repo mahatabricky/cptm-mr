@@ -26,9 +26,9 @@ class Admin extends BaseController
 
         $this->callbacks = new AdminCallbacks();
 
-         $this->setPages();
+        $this->setPages();
 
-         $this->setSubPages();
+        $this->setSubPages();
 
         $this->settings->addPages( $this->pages )->withSubPages( 'Dashboard' )->addSubPages( $this->subpages )->register();
     }

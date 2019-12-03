@@ -17,11 +17,24 @@ class SettingsApi
         }
     }
 
+/**
+ *  Add new admin page
+ * @param array $pages
+ * return void
+ */
+
    public function AddPages( array $pages)
    {
        $this->admin_pages = $pages;
        return $this;
    }
+
+/**
+ * With subpages
+ *
+ * @param string $title
+ * @return void
+ */
 
    public function withSubPages( string $title = null )
    {
@@ -46,13 +59,24 @@ class SettingsApi
 
       return $this;
    }
-
+/**
+ * Add new admin subpages
+ *
+ * @param array $page
+ * @return void
+ */
    public function addSubPages ( $page )
    {
        $this->admin_subpages = array_merge( $this->admin_subpages, $page);
 
        return $this;
    }
+
+/**
+ * Add admin menu with submenus
+ *
+ * @return void
+ */
 
    public function addAdminMenu()
    {
@@ -64,5 +88,16 @@ class SettingsApi
            add_submenu_page($page['parent_slug'], $page['page_title'], $page['menu_title'], $page['capability'], $page['menu_slug'], $page['callback']);
        }
    }
+
+   public function registerSettings($page)
+   {
+       register_setting($page[option_group], $page[option_name], $page[sanitize_callback]);
+   }
+
+   public function AddAdminField()
+   {
+       
+   }
+
 }
 ?>
