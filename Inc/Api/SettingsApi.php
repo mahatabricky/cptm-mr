@@ -94,9 +94,14 @@ class SettingsApi
        register_setting($page[option_group], $page[option_name], $page[sanitize_callback]);
    }
 
-   public function AddAdminField()
+   public function AddSettingsSection($section)
    {
-       
+        add_settings_section($section[id], $section[title], $section[callback], $section[page]);
+   }
+
+   public function AddSettingsField($field)
+   {
+       add_settings_field($field[id], $field[title], $field[callback], $field[page], $field[section], $field[args]);
    }
 
 }
