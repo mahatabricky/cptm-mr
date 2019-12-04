@@ -46,5 +46,24 @@ use Cptmmr\Base\BaseController;
           return require_once "$this->plugin_path./templates/widgetdashboard.php";
       }
 
+      public function cptmrOptionsGroup( $input )
+      {
+          return $input;
+      }
+
+      public function cptmrAdminSection()
+      {
+          echo "this is beautiful admin section ";
+      }
+
+      public function cptmrTextExample()
+      {
+   
+        $value = esc_attr( get_option( 'text_example' ) );
+
+        echo '<input type="text" class="regular-text" name = "text_example" value="' .$value. '" placeholder="Write something here!">';
+      
+    }
+
  }
 ?>

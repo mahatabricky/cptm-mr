@@ -81,5 +81,46 @@ class Admin extends BaseController
         );    
     }
 
+    public function setSettings()
+    {
+        $args = array(
+            array(
+                'option_group' => 'cptmr_options_group',
+                'option_name'  => 'text_example',
+                'callback'     => array( $this->callbacks , 'cptmrOptionsGroup' )
+            )
+        );
+
+        $this->settings->setSettings( $args );
+    }
+
+    public function setSections()
+    {
+        $args = array(
+            array(
+                'id'       => 'cptmr_admin_index',
+                'title'    => 'Settings',
+                'callback' => array( $this->callbacks , 'cptmrAdminSection' ),
+                'page'     => 'cptmmr_plugin'
+            )
+        );
+
+        $this->settings->setSections( $args );
+    }    
+
+    public function setFields()
+    {
+        $args = array(
+            array(
+                'id'       => 'text_example',
+                'title'    => 'Text Example',
+                'callback' => array( $this->callbacks , 'cptmrTextExample' ),
+                'page'     => 'cptmmr_plugin'
+            )
+        );
+
+        $this->settings->setFields( $args );
+    }     
+
 }
 ?>
