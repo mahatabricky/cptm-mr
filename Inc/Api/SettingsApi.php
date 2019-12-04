@@ -89,20 +89,44 @@ class SettingsApi
        }
    }
 
-   public function registerSettings($page)
-   {
-       register_setting($page[option_group], $page[option_name], $page[sanitize_callback]);
-   }
+//    public function registerSettings($option)
+//    {
+//        register_setting($option['option_group'], $option['option_name'], $option['sanitize_callback']);
+//    }
 
-   public function AddSettingsSection($section)
-   {
-        add_settings_section($section[id], $section[title], $section[callback], $section[page]);
-   }
+//    public function AddSettingsSection($section)
+//    {
+//         add_settings_section($section['id'], $section['title'], $section['callback'], $section['page']);
+//    }
 
-   public function AddSettingsField($field)
-   {
-       add_settings_field($field[id], $field[title], $field[callback], $field[page], $field[section], $field[args]);
-   }
+//    public function AddSettingsField($field)
+//    {
+//        add_settings_field($field['id'], $field['title'], $field['callback'], $field['page'], $field['section'], $field['args']);
+//    }
+
+     public function registerCustomFields()
+     {
+         // Register settings
+         register_setting( $setting["option_group"], $setting["option_name"],
+                 (isset ( $setting["callback"] ) ? $setting["callback"] : '' ) 
+                );
+
+         // add settings section
+
+         add_settings_section( $section["id"], $section["title"],
+                    (isset ( $section["callback"] ) ? $section["callback"] : '' ),
+                    $section["page"]
+                );
+
+         // add settings field
+
+         add_settings_field( $field["id"], $field["title"],
+                    (isset ( $field["callback"] ) ? $field["callback"] : '' ),  
+                    $field["page"], $field["section"], 
+                    (isset ( $field["args"] ) ? $field["args"] : '' )
+                );
+
+     }
 
 }
 ?>
