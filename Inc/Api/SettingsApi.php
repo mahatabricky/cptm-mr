@@ -19,8 +19,13 @@ class SettingsApi
     public function register()
     {
         if( !empty( $this->admin_pages) ){
-            add_action('admin_menu',array($this,'addAdminMenu'));
+            add_action('admin_menu',array( $this,'addAdminMenu'));
         }
+
+        if( !empty( $this->settings ) ){
+            add_action('admin_init', array( $this,'registerCustomFields') );
+        }
+
     }
 
 /**

@@ -53,7 +53,7 @@ use Cptmmr\Base\BaseController;
 
       public function cptmrAdminSection()
       {
-          echo "this is beautiful admin section ";
+          echo "Check this beautiful section ";
       }
 
       public function cptmrTextExample()

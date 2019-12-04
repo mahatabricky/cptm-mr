@@ -30,7 +30,14 @@ class Admin extends BaseController
 
         $this->setSubPages();
 
-        $this->settings->addPages( $this->pages )->withSubPages( 'Dashboard' )->addSubPages( $this->subpages )->register();
+        $this->setSettings();
+
+        $this->setSections();
+
+        $this->setFields();
+        
+        $this->settings->addPages( $this->pages )->withSubPages( 'Dashboard' )->addSubPages( $this->subpages )
+               ->register();
     }
 
 
@@ -115,7 +122,12 @@ class Admin extends BaseController
                 'id'       => 'text_example',
                 'title'    => 'Text Example',
                 'callback' => array( $this->callbacks , 'cptmrTextExample' ),
-                'page'     => 'cptmmr_plugin'
+                'page'     => 'cptmmr_plugin',
+                'section'  => 'cptmr_admin_index',
+                'args'     => array(
+                    'labels_for' => 'text_example',
+                    'class'      => 'example-class'
+                )
             )
         );
 
