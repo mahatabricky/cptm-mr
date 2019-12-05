@@ -23,8 +23,11 @@ use Cptmmr\Base\BaseController;
       */
 
       public function enqueue(){
-        wp_enqueue_style('mypluginstyle',$this->plugin_url.'assets/css/mystyle.css');
-        wp_enqueue_script('mypluginscript',$this->plugin_url.'assets/js/myscript.js');
+        wp_enqueue_style( 'mypluginstyle', $this->plugin_url.'assets/css/mystyle.css');
+        
+        wp_enqueue_style( 'w3css', $this->plugin_url.'assets/css/w3.css');
+
+        wp_enqueue_script( 'mypluginscript', $this->plugin_url.'assets/js/myscript.js');
       }
 
  }

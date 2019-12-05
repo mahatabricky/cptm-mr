@@ -56,12 +56,21 @@ use Cptmmr\Base\BaseController;
           echo "Check this beautiful section ";
       }
 
-      public function cptmrTextExample()
-      {
+    public function cptmrTextExample()
+    {
    
         $value = esc_attr( get_option( 'text_example' ) );
 
         echo '<input type="text" class="regular-text" name = "text_example" value="' .$value. '" placeholder="Write something here!">';
+      
+    }
+
+    public function cptmrFirstName()
+    {
+
+        $value = esc_attr( get_option( 'first_name' ) );
+
+        echo '<input type="text" class="regular-text" name = "first_name" value="' .$value. '" placeholder="Write first name here!">';
       
     }
 
