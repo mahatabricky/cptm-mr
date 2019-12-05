@@ -1,6 +1,6 @@
 function openCity(cityName) {
     var i;
-    var x = document.getElementsByClassName("city");
+    var x = document.getElementsByClassName("tab");
     for (i = 0; i < x.length; i++) {
       x[i].style.display = "none";  
     }
