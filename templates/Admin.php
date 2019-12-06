@@ -1,12 +1,11 @@
 <div class="wrap">
+   <div class="container-fluid">
+
    <h1>Cptmr Plugin Dashboard</h1>
 
-   <?php settings_errors(); ?>
+      <?php settings_errors(); ?>
 
-
-   <div class="w3-container">
-
-      <div class="w3-bar w3-black">
+      <div class="w3-bar w3-grey menu-button">
          <button class="w3-bar-item w3-button" onclick="openCity('manage-settings')">Manage Settings</button>
          <button class="w3-bar-item w3-button" onclick="openCity('updates')">Updates</button>
          <button class="w3-bar-item w3-button" onclick="openCity('about')">About</button>
@@ -32,10 +31,9 @@
 
          <div id="about" class="w3-container tab" style="display:none">
             <h3>About Author</h2>
-            <p>Tokyo is the capital of Japan.</p>
+               <p><b>Name : </b> Mahatab Hossain</p>
          </div>
       </div>
    </div>
-
 
 </div>

@@ -28,7 +28,7 @@ use Cptmmr\Base\BaseController;
         $checkbox = get_option( $name );
 
         echo '<input type="checkbox" class="'.$classes.'" name = "'.$name.'" value="1" 
-         '.($checkbox ? 'checked' : '').'>';
+         '.($checkbox ? 'checked' : '').' data-toggle="toggle">';
     }
    
  }
