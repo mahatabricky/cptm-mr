@@ -172,7 +172,8 @@ class Admin extends BaseController
                 'section'  => 'cptmr_admin_index',
                 'args'     => array(
                     'labels_for' => 'cpt_manager',
-                    'class'      => 'ui-toggle'
+                    'class'      => 'ui-toggle',
+                    'data-toggle'=> 'toggle'
                 )
                 ),
             array(
@@ -183,7 +184,8 @@ class Admin extends BaseController
                 'section'  => 'cptmr_admin_index',
                 'args'     => array(
                     'labels_for' => 'taxonomy_manager',
-                    'class'      => 'ui-toggles'
+                    'class'      => 'ui-toggles',
+                    'data-toggle'=> 'toggle'
                 )
                 ),
                 array(
@@ -194,7 +196,8 @@ class Admin extends BaseController
                     'section'  => 'cptmr_admin_index',
                     'args'     => array(
                         'labels_for' => 'media_widget',
-                        'class'      => 'ui-toggle'
+                        'class'      => 'ui-toggle',
+                        'data-toggle'=> 'toggle'
                     )
                 ) ,
                 array(
@@ -205,7 +208,8 @@ class Admin extends BaseController
                     'section'  => 'cptmr_admin_index',
                     'args'     => array(
                         'labels_for' => 'gallery_manager',
-                        'class'      => 'ui-toggle'
+                        'class'      => 'ui-toggle',
+                        'data-toggle'=> 'toggle'
                     )
                 ) ,
                 array(
@@ -216,7 +220,8 @@ class Admin extends BaseController
                     'section'  => 'cptmr_admin_index',
                     'args'     => array(
                         'labels_for' => 'testimonial_manager',
-                        'class'      => 'ui-toggle'
+                        'class'      => 'ui-toggle',
+                        'data-toggle'=> 'toggle'
                     )
                 ) ,
                 array(
@@ -227,7 +232,8 @@ class Admin extends BaseController
                     'section'  => 'cptmr_admin_index',
                     'args'     => array(
                         'labels_for' => 'templates_manager',
-                        'class'      => 'ui-toggle'
+                        'class'      => 'ui-toggle',
+                        'data-toggle'=> 'toggle'
                     )
                 ) ,
                 array(
@@ -238,7 +244,8 @@ class Admin extends BaseController
                     'section'  => 'cptmr_admin_index',
                     'args'     => array(
                         'labels_for' => 'login_manager',
-                        'class'      => 'ui-toggle'
+                        'class'      => 'ui-toggle',
+                        'data-toggle'=> 'toggle'
                     )
                 ) ,
                 array(
@@ -249,7 +256,8 @@ class Admin extends BaseController
                     'section'  => 'cptmr_admin_index',
                     'args'     => array(
                         'labels_for' => 'membership_manager',
-                        'class'      => 'ui-toggle'
+                        'class'      => 'ui-toggle',
+                        'data-toggle'=> 'toggle'
                     )
                     ), 
                 array(
@@ -260,7 +268,8 @@ class Admin extends BaseController
                     'section'  => 'cptmr_admin_index',
                     'args'     => array(
                         'labels_for' => 'chat_manager',
-                        'class'      => 'ui-toggle'
+                        'class'      => 'ui-toggle',
+                        'data-toggle'=> 'toggle'
                     )
                 )     
         );

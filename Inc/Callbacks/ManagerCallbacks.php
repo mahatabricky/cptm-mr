@@ -25,10 +25,11 @@ use Cptmmr\Base\BaseController;
     {
         $name = $args['labels_for'];
         $classes = $args['class'];
+        $toggle  = $args['data-toggle'];
         $checkbox = get_option( $name );
 
         echo '<input type="checkbox" class="'.$classes.'" name = "'.$name.'" value="1" 
-         '.($checkbox ? 'checked' : '').' data-toggle="toggle">';
+         '.($checkbox ? 'checked' : '').' data-toggle="'.$toggle.'">';
     }
    
  }
