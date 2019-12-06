@@ -46,20 +46,23 @@ use Cptmmr\Base\BaseController;
           return require_once "$this->plugin_path./templates/widgetdashboard.php";
       }
 
+      
+
       public function cptmrOptionsGroup( $input )
       {
           return $input;
       }
 
-      public function cptmrAdminSection()
+      public function checkboxSanitize( $input )
       {
-          echo "Check this beautiful section ";
+          return $input;
       }
+
 
     public function cptmrTextExample()
     {
    
-        $value = esc_attr( get_option( 'text_example' ) );
+        $value = esc_attr( get_option( 'cpt_manager' ) );
 
         echo '<input type="text" class="regular-text" name = "text_example" value="' .$value. '" placeholder="Write something here!">';
       
@@ -68,7 +71,7 @@ use Cptmmr\Base\BaseController;
     public function cptmrFirstName()
     {
 
-        $value = esc_attr( get_option( 'first_name' ) );
+        $value = esc_attr( get_option( 'taxonomy_manager' ) );
 
         echo '<input type="text" class="regular-text" name = "first_name" value="' .$value. '" placeholder="Write first name here!">';
       
