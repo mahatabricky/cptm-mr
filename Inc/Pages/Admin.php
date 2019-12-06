@@ -183,7 +183,7 @@ class Admin extends BaseController
                 'section'  => 'cptmr_admin_index',
                 'args'     => array(
                     'labels_for' => 'taxonomy_manager',
-                    'class'      => 'ui-toggle'
+                    'class'      => 'ui-toggles'
                 )
                 ),
                 array(

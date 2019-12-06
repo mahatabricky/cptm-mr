@@ -23,16 +23,12 @@ use Cptmmr\Base\BaseController;
 
     public function checkboxField( $args )
     {
-       // var_dump($args);
-       // return;
-
         $name = $args['labels_for'];
         $classes = $args['class'];
         $checkbox = get_option( $name );
 
-        echo $name."</br>";
-
-      //  echo '<input type="text" class="regular-text" name = "text_example" value="' .$value. '" placeholder="Write something here!">';
+        echo '<input type="checkbox" class="'.$classes.'" name = "'.$name.'" value="1" 
+         '.($checkbox ? 'checked' : '').'>';
     }
    
  }
