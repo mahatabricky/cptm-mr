@@ -15,7 +15,7 @@
 
      public $plugin;
 
-     public $manager = array();
+     public $managers = array();
 
      public function __construct()
      {
@@ -25,25 +25,22 @@
 
          $this->plugin = plugin_basename(dirname(__FILE__,3)).'/cptm-mr.php';
 
+         $this->managers = array(
+
+            'cpt_manager'       =>  'Activate CPT Manager',
+            'taxonomy_manager'  =>  'Activate Taxonomoy Manager',
+            'media_widget'      =>  'Activate Media Widget',
+            'gallery_manager'   =>  'Activate Gallery Manager',
+            'testimonial_manager'=> 'Activate Testimonial Manager',
+            'templates_manager' =>  'Activate Templates Manager',
+            'login_manager'     =>  'Activate Ajax/Login/Signup',
+            'membership_manager'=>  'Activate Membership Manager',
+            'chat_manager'      =>  'Activate Chat Manager'
+            
+            );
+
      }
 
-     public function customManager ()
 
-     {
-         $$this->manager = array([
 
-                'cpt_manager'       =>  'Activate CPT Manager',
-                'taxonomy_manager'  =>  'Activate Taxonomoy Manager',
-                'media_widget'      =>  'Activate Media Widget',
-                'gallery_manager'   =>  'Activate Gallery Manager',
-                'testimonial_manager'=> 'Activate Testimonial Manager',
-                'templates_manager' =>  'Activate Templates Manager',
-                'login_manager'     =>  'Activate Ajax/Login/Signup',
-                'membership_namager'=>  'Activate Membership Manager',
-                'chat_manager'      =>  'Activate Chat Manager'
-         ]);
-       
-        return $this;
-        
-     }
  }
