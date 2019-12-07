@@ -18,7 +18,7 @@ use Cptmmr\Base\BaseController;
 
     public function adminSectionManager()
     {
-        echo "Manage the Sections and Features of this plugin by Activating Checkboxes";
+        echo "Manage the Sections and Features of this plugin by Activating Following Checkboxes";
     }
 
     public function checkboxField( $args )
@@ -31,6 +31,8 @@ use Cptmmr\Base\BaseController;
         echo '<input type="checkbox" class="'.$classes.'" id = "'.$name.'" name = "'.$name.'" value="1" 
          '.($checkbox ? 'checked' : '').' data-toggle="'.$toggle.'">';
     }
+
+    
    
  }
 ?>
