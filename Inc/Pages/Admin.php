@@ -96,16 +96,13 @@ class Admin extends BaseController
     public function setSettings()
     {
         
-        $args = array();
-
-        foreach( $this->managers as $key => $value ){
-
-            $args[] = array(
-                'option_group' => 'cptmr_plugin_settings',
-                 'option_name'  => $key,
-                 'callback'     => array( $this->callbacks_mngr , 'checkboxSanitize' )
-            );
-        }
+        $args = array(
+                  array(
+                    'option_group' => 'cptmr_plugin_settings',
+                    'option_name'  => 'cptmmr_plugin',
+                    'callback'     => array( $this->callbacks_mngr , 'checkboxSanitize' )
+                    )
+               );
 
         $this->settings->setSettings( $args );
     }
@@ -138,6 +135,7 @@ class Admin extends BaseController
                 'page'     => 'cptmmr_plugin',
                 'section'  => 'cptmr_admin_index',
                 'args'     => array(
+                    'option_name'=> 'cptmmr_plugin',
                     'labels_for' => $key,
                     'class'      => 'ui-toggle',
                     'data-toggle'=> 'toggle'

@@ -12,7 +12,13 @@ use Cptmmr\Base\BaseController;
     public function checkboxSanitize( $input )
     {
 
-        return ( isset($input) ? true : false );
+        $output = array();
+
+        foreach( $this->managers as $key => $value ){
+            $output[$key] = isset( $input[$key] )? true : false;
+        }
+       
+        return $output;
 
     }
 
@@ -26,10 +32,12 @@ use Cptmmr\Base\BaseController;
         $name = $args['labels_for'];
         $classes = $args['class'];
         $toggle  = $args['data-toggle'];
-        $checkbox = get_option( $name );
+        $option_name = $args['option_name'];
 
-        echo '<input type="checkbox" class="'.$classes.'" id = "'.$name.'" name = "'.$name.'" value="1" 
-         '.($checkbox ? 'checked' : '').' data-toggle="'.$toggle.'">';
+        $checkbox = get_option( $option_name );
+
+        echo '<input type="checkbox" class="'.$classes.'" id = "'.$name.'" name = "'.$option_name.'['.$name.']" 
+        value="1" '.($checkbox[$name] ? 'checked' : '').' data-toggle="'.$toggle.'">';
     }
 
     
