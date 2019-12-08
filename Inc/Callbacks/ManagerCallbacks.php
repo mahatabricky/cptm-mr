@@ -15,7 +15,7 @@ use Cptmmr\Base\BaseController;
         $output = array();
 
         foreach( $this->managers as $key => $value ){
-            $output[$key] = isset( $input[$key] )? true : false;
+            $output[$key] = !empty( $input[$key] )? true : false;
         }
        
         return $output;
@@ -34,7 +34,7 @@ use Cptmmr\Base\BaseController;
         $toggle  = $args['data-toggle'];
         $option_name = $args['option_name'];
 
-        $checkbox = get_option( $option_name );
+        $checkbox = get_option( $option_name ); 
 
         echo '<input type="checkbox" class="'.$classes.'" id = "'.$name.'" name = "'.$option_name.'['.$name.']" 
         value="1" '.($checkbox[$name] ? 'checked' : '').' data-toggle="'.$toggle.'">';
