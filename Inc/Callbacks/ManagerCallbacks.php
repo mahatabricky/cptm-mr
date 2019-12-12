@@ -15,7 +15,7 @@ use Cptmmr\Base\BaseController;
         $output = array();
 
         foreach( $this->managers as $key => $value ){
-            $output[$key] = !empty( $input[$key] )? true : false;
+            $output[$key] = !empty( $input[$key] )? true : false; // Save all the array values
         }
        
         return $output;
