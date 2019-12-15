@@ -13,7 +13,7 @@ final class Init {
 
     public static function get_services(){
         return [
-            Pages\Admin::class, // 
+            Pages\Dashboard::class, // Register Dashboard class
             Base\Enqueue::class, // Register Enqueue class to load all scripts files
             Base\SettingsLinks::class // Register SettingsLinks class to add settings links in main plugin page
         ];

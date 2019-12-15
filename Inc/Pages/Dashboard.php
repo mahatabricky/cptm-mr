@@ -10,7 +10,7 @@ use Cptmmr\Base\BaseController;
 use Cptmmr\Callbacks\AdminCallbacks;
 use Cptmmr\Callbacks\ManagerCallbacks;
 
-class Admin extends BaseController
+class Dashboard extends BaseController
 {
     public  $settings;
 
