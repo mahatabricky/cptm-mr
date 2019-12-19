@@ -17,6 +17,8 @@
 
      public $managers = array();
 
+     //public $managers_key = array();
+
      public function __construct()
      {
          $this->plugin_path = plugin_dir_path(dirname(__FILE__,2));
@@ -38,6 +40,8 @@
             'chat_manager'      =>  'Activate Chat Manager'
             
             );
+
+       // $this->managers_key = array_keys ( $this->managers );    
 
      }
 

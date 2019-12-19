@@ -5,16 +5,42 @@
 namespace Cptmmr\Base;
 
 use Cptmmr\Base\BaseController;
+use Cptmmr\Api\SettingsApi;
+use Cptmmr\Callbacks\AdminCallbacks;
 
 class CustomPostTypeController extends BaseController
 {
 
+    public $subpages = array();
 
+    public $settings ;
+
+    public $callbacks ;
 
     public function register()
     {
-        $cpt_option = get_option(cptmmr_plugin['cpt_manager']);
 
+        $managers = array_keys ( $this->managers);
+
+        var_dump( $this->managers['cpt_manager'] );
+
+        $cpt_option = get_option('cptmmr_plugin');
+
+        $cpt_checked = ($cpt_option[$managers['0']]) ? true : false;
+
+        if(! $cpt_checked){
+
+            return;
+
+        }
+
+        $this->settings = new SettingsApi();
+
+        $this->callbacks = new AdminCallbacks();
+
+        $this->setSubPages();
+
+        $this->settings->addSubPages( $this->subpages )->register();
 
         add_action('init', array( $this,'activate'));
 
@@ -35,6 +61,38 @@ class CustomPostTypeController extends BaseController
                 )
             );
     }
+
+    public function setSubPages()
+    {
+
+         $this->subpages = array(
+            array(
+                'parent_slug' => 'cptmmr_plugin',
+                'page_title'  => 'Custom Post Type',
+                'menu_title'  => 'CPT Manager',
+                'capability'  => 'manage_options',
+                'menu_slug'   => 'cpt_manager',
+                'callback'    => array($this->callbacks,'cptTemplates')  
+            ),
+            // array(
+            //     'parent_slug' => 'cptmmr_plugin',
+            //     'page_title'  => 'Taxonomies Manager',
+            //     'menu_title'  => 'Taxonomies',
+            //     'capability'  => 'manage_options',
+            //     'menu_slug'   => 'taxonomies_manager',
+            //     'callback'    => array($this->callbacks,'taxonomiesTemplates')  
+            // ),
+            // array(
+            //     'parent_slug' => 'cptmmr_plugin',
+            //     'page_title'  => 'Widget Managaer',
+            //     'menu_title'  => 'Widget',
+            //     'capability'  => 'manage_options',
+            //     'menu_slug'   => 'widget_manager',
+            //     'callback'    => array($this->callbacks,'widgetTemplates')  
+            // ),
+        );    
+    }
+
 
        
     
