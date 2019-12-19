@@ -22,7 +22,7 @@ class CustomPostTypeController extends BaseController
 
         $managers = array_keys ( $this->managers);
 
-        var_dump( $this->managers['cpt_manager'] );
+      //  var_dump( $this->managers['cpt_manager'] );
 
         $cpt_option = get_option('cptmmr_plugin');
 
