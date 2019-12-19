@@ -13,6 +13,9 @@ class CustomPostTypeController extends BaseController
 
     public function register()
     {
+        $cpt_option = get_option(cptmmr_plugin['cpt_manager']);
+
+
         add_action('init', array( $this,'activate'));
 
     }
