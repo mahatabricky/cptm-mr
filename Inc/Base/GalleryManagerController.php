@@ -8,7 +8,7 @@ use Cptmmr\Base\BaseController;
 use Cptmmr\Api\SettingsApi;
 use Cptmmr\Callbacks\AdminCallbacks;
 
-class CustomPostTypeController extends BaseController
+class GalleryManagerController extends BaseController
 {
 
     public $subpages = array();

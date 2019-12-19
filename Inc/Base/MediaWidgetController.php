@@ -8,7 +8,7 @@ use Cptmmr\Base\BaseController;
 use Cptmmr\Api\SettingsApi;
 use Cptmmr\Callbacks\AdminCallbacks;
 
-class CustomPostTypeController extends BaseController
+class MediaWidgetController extends BaseController
 {
 
     public $subpages = array();
