@@ -63,37 +63,7 @@ class Dashboard extends BaseController
        );
     }
 
-    // public function setSubPages()
-    // {
-
-    //      $this->subpages = array(
-    //         array(
-    //             'parent_slug' => 'cptmmr_plugin',
-    //             'page_title'  => 'Custom Post Type',
-    //             'menu_title'  => 'CPT Manager',
-    //             'capability'  => 'manage_options',
-    //             'menu_slug'   => 'cpt_manager',
-    //             'callback'    => array($this->callbacks,'cptTemplates')  
-    //         ),
-    //         array(
-    //             'parent_slug' => 'cptmmr_plugin',
-    //             'page_title'  => 'Taxonomies Manager',
-    //             'menu_title'  => 'Taxonomies',
-    //             'capability'  => 'manage_options',
-    //             'menu_slug'   => 'taxonomies_manager',
-    //             'callback'    => array($this->callbacks,'taxonomiesTemplates')  
-    //         ),
-    //         array(
-    //             'parent_slug' => 'cptmmr_plugin',
-    //             'page_title'  => 'Widget Managaer',
-    //             'menu_title'  => 'Widget',
-    //             'capability'  => 'manage_options',
-    //             'menu_slug'   => 'widget_manager',
-    //             'callback'    => array($this->callbacks,'widgetTemplates')  
-    //         ),
-    //     );    
-    // }
-
+    
     public function setSettings()
     {
         
