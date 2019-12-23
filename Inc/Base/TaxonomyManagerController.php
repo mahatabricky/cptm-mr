@@ -26,7 +26,7 @@ class TaxonomyManagerController extends BaseController
 
       //  var_dump($managers);
 
-        $cpt_checked = ($cpt_option[$managers['1']]) ? true : false;  // 0 index indicates cpt_manager keys
+        $cpt_checked = ($cpt_option[$managers['1']]) ? true : false;  // 1 index indicates taxonomy_manager keys
 
         if(! $cpt_checked){
 

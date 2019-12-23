@@ -46,6 +46,15 @@ use Cptmmr\Base\BaseController;
           return require_once "$this->plugin_path./templates/widgetdashboard.php";
       }
 
+      /**
+       * Calling gallerydashboard.php file
+       * 
+       */
+
+       public function galleryTemplates()
+       {
+           return require_once "$this->plugin_path./templates/gallerydashboard.php";
+       }
       
 
     //   public function cptmrOptionsGroup( $input )

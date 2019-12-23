@@ -18,7 +18,8 @@ final class Init {
             Base\SettingsLinks::class, // Register SettingsLinks class to add settings links in main plugin page
             Base\CustomPostTypeController::class,
             Base\TaxonomyManagerController::class,
-            Base\MediaWidgetController::class
+            Base\MediaWidgetController::class,
+            Base\GalleryManagerController::class
         ];
     }
     

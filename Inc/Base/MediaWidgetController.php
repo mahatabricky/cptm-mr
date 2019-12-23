@@ -26,7 +26,7 @@ class MediaWidgetController extends BaseController
 
         $cpt_option = get_option('cptmmr_plugin');
 
-        $cpt_checked = ($cpt_option[$managers['2']]) ? true : false;  // 0 index indicates cpt_manager keys
+        $cpt_checked = ($cpt_option[$managers['2']]) ? true : false;  // 2 index indicates media_manager keys
 
         if(! $cpt_checked){
 
