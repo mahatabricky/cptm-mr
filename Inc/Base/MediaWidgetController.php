@@ -22,9 +22,11 @@ class MediaWidgetController extends BaseController
 
         $managers = array_keys ( $this->managers);
 
+       // var_dump($managers);
+
         $cpt_option = get_option('cptmmr_plugin');
 
-        $cpt_checked = ($cpt_option[$managers['0']]) ? true : false;  // 0 index indicates cpt_manager keys
+        $cpt_checked = ($cpt_option[$managers['2']]) ? true : false;  // 0 index indicates cpt_manager keys
 
         if(! $cpt_checked){
 
@@ -66,28 +68,13 @@ class MediaWidgetController extends BaseController
          $this->subpages = array(
             array(
                 'parent_slug' => 'cptmmr_plugin',
-                'page_title'  => 'Custom Post Type',
-                'menu_title'  => 'CPT Manager',
+                'page_title'  => 'Media Widget',
+                'menu_title'  => 'Media Widget Manager',
                 'capability'  => 'manage_options',
-                'menu_slug'   => 'cpt_manager',
-                'callback'    => array($this->callbacks,'cptTemplates')  
+                'menu_slug'   => 'media_widget_manager',
+                'callback'    => array($this->callbacks,'widgetTemplates')  
             ),
-            // array(
-            //     'parent_slug' => 'cptmmr_plugin',
-            //     'page_title'  => 'Taxonomies Manager',
-            //     'menu_title'  => 'Taxonomies',
-            //     'capability'  => 'manage_options',
-            //     'menu_slug'   => 'taxonomies_manager',
-            //     'callback'    => array($this->callbacks,'taxonomiesTemplates')  
-            // ),
-            // array(
-            //     'parent_slug' => 'cptmmr_plugin',
-            //     'page_title'  => 'Widget Managaer',
-            //     'menu_title'  => 'Widget',
-            //     'capability'  => 'manage_options',
-            //     'menu_slug'   => 'widget_manager',
-            //     'callback'    => array($this->callbacks,'widgetTemplates')  
-            // ),
+            
         );    
     }
 

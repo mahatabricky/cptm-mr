@@ -17,7 +17,8 @@ final class Init {
             Base\Enqueue::class, // Register Enqueue class to load all scripts files
             Base\SettingsLinks::class, // Register SettingsLinks class to add settings links in main plugin page
             Base\CustomPostTypeController::class,
-            Base\TaxonomyManagerController::class
+            Base\TaxonomyManagerController::class,
+            Base\MediaWidgetController::class
         ];
     }
     
