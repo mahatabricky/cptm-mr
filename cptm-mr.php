@@ -22,7 +22,7 @@
  */
 
 if(!defined('ABSPATH')){
-    die('hey , kiddo don\'t think over smart!!!');
+    die('hey , kiddo don\'t think you are over smart!!!');
 }
 
 // Require Autoload file to use class automatically
