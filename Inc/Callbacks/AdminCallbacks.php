@@ -48,34 +48,34 @@ use Cptmmr\Base\BaseController;
 
       
 
-      public function cptmrOptionsGroup( $input )
-      {
-          return $input;
-      }
+    //   public function cptmrOptionsGroup( $input )
+    //   {
+    //       return $input;
+    //   }
 
-      public function checkboxSanitize( $input )
-      {
-          return $input;
-      }
+    //   public function checkboxSanitize( $input )
+    //   {
+    //       return $input;
+    //   }
 
 
-    public function cptmrTextExample()
-    {
+    // public function cptmrTextExample()
+    // {
    
-        $value = esc_attr( get_option( 'cpt_manager' ) );
+    //     $value = esc_attr( get_option( 'cpt_manager' ) );
 
-        echo '<input type="text" class="regular-text" name = "text_example" value="' .$value. '" placeholder="Write something here!">';
+    //     echo '<input type="text" class="regular-text" name = "text_example" value="' .$value. '" placeholder="Write something here!">';
       
-    }
+    // }
 
-    public function cptmrFirstName()
-    {
+    // public function cptmrFirstName()
+    // {
 
-        $value = esc_attr( get_option( 'taxonomy_manager' ) );
+    //     $value = esc_attr( get_option( 'taxonomy_manager' ) );
 
-        echo '<input type="text" class="regular-text" name = "first_name" value="' .$value. '" placeholder="Write first name here!">';
+    //     echo '<input type="text" class="regular-text" name = "first_name" value="' .$value. '" placeholder="Write first name here!">';
       
-    }
+    // }
 
  }
 ?>

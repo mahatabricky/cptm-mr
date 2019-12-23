@@ -8,7 +8,7 @@ use Cptmmr\Base\BaseController;
 use Cptmmr\Api\SettingsApi;
 use Cptmmr\Callbacks\AdminCallbacks;
 
-class GalleryManagerController extends BaseController
+class ChatManagerController extends BaseController
 {
 
     public $subpages = array();
@@ -72,7 +72,22 @@ class GalleryManagerController extends BaseController
                 'menu_slug'   => 'cpt_manager',
                 'callback'    => array($this->callbacks,'cptTemplates')  
             ),
-            
+            // array(
+            //     'parent_slug' => 'cptmmr_plugin',
+            //     'page_title'  => 'Taxonomies Manager',
+            //     'menu_title'  => 'Taxonomies',
+            //     'capability'  => 'manage_options',
+            //     'menu_slug'   => 'taxonomies_manager',
+            //     'callback'    => array($this->callbacks,'taxonomiesTemplates')  
+            // ),
+            // array(
+            //     'parent_slug' => 'cptmmr_plugin',
+            //     'page_title'  => 'Widget Managaer',
+            //     'menu_title'  => 'Widget',
+            //     'capability'  => 'manage_options',
+            //     'menu_slug'   => 'widget_manager',
+            //     'callback'    => array($this->callbacks,'widgetTemplates')  
+            // ),
         );    
     }
 
