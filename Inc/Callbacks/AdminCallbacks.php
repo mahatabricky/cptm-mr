@@ -56,6 +56,14 @@ use Cptmmr\Base\BaseController;
            return require_once "$this->plugin_path./templates/gallerydashboard.php";
        }
       
+       /**
+        *  Calling testimonialdashboard.php file
+        */
+
+        public function testimonialTemplates()
+        {
+            return require_once "$this->plugin_path./templates/testimonialTemplates";
+        }
 
     //   public function cptmrOptionsGroup( $input )
     //   {

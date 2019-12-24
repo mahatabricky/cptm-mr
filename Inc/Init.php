@@ -19,7 +19,8 @@ final class Init {
             Base\CustomPostTypeController::class,
             Base\TaxonomyManagerController::class,
             Base\MediaWidgetController::class,
-            Base\GalleryManagerController::class
+            Base\GalleryManagerController::class,
+            Base\TestimonialManagerController::class
         ];
     }
     
