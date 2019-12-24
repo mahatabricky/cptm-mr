@@ -21,7 +21,10 @@ final class Init {
             Base\MediaWidgetController::class,
             Base\GalleryManagerController::class,
             Base\TestimonialManagerController::class,
-            Base\TemplatesManagerController::class
+            Base\TemplatesManagerController::class,
+            Base\LoginManagerController::class,
+            Base\MembershipManagerController::class,
+            Base\ChatManagerController::class
         ];
     }
     

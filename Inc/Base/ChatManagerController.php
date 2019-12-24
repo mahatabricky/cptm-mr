@@ -24,7 +24,7 @@ class ChatManagerController extends BaseController
 
         $cpt_option = get_option('cptmmr_plugin');
 
-        $cpt_checked = ($cpt_option[$managers['0']]) ? true : false;  // 0 index indicates cpt_manager keys
+        $cpt_checked = ($cpt_option[$managers['8']]) ? true : false;  // 8 index indicates chat_manager keys
 
         if(! $cpt_checked){
 
@@ -40,25 +40,25 @@ class ChatManagerController extends BaseController
 
         $this->settings->addSubPages( $this->subpages )->register();
 
-        add_action('init', array( $this,'activate'));
+      //  add_action('init', array( $this,'activate'));
 
     }
 
-    public function activate()
-    {
-         register_post_type( 'movies',
-    // CPT Options
-                array(
-                    'labels' => array(
-                        'name' => __( 'Movies' ),
-                        'singular_name' => __( 'Movie' )
-                    ),
-                    'public' => true,
-                    'has_archive' => true,
-                    'rewrite' => array('slug' => 'movies'),
-                )
-            );
-    }
+    // public function activate()
+    // {
+    //      register_post_type( 'movies',
+    // // CPT Options
+    //             array(
+    //                 'labels' => array(
+    //                     'name' => __( 'Movies' ),
+    //                     'singular_name' => __( 'Movie' )
+    //                 ),
+    //                 'public' => true,
+    //                 'has_archive' => true,
+    //                 'rewrite' => array('slug' => 'movies'),
+    //             )
+    //         );
+    // }
 
     public function setSubPages()
     {
@@ -66,28 +66,13 @@ class ChatManagerController extends BaseController
          $this->subpages = array(
             array(
                 'parent_slug' => 'cptmmr_plugin',
-                'page_title'  => 'Custom Post Type',
-                'menu_title'  => 'CPT Manager',
+                'page_title'  => 'Chat Manager',
+                'menu_title'  => 'Chat Manager',
                 'capability'  => 'manage_options',
-                'menu_slug'   => 'cpt_manager',
-                'callback'    => array($this->callbacks,'cptTemplates')  
+                'menu_slug'   => 'chat_manager',
+                'callback'    => array($this->callbacks,'chatTemplates')  
             ),
-            // array(
-            //     'parent_slug' => 'cptmmr_plugin',
-            //     'page_title'  => 'Taxonomies Manager',
-            //     'menu_title'  => 'Taxonomies',
-            //     'capability'  => 'manage_options',
-            //     'menu_slug'   => 'taxonomies_manager',
-            //     'callback'    => array($this->callbacks,'taxonomiesTemplates')  
-            // ),
-            // array(
-            //     'parent_slug' => 'cptmmr_plugin',
-            //     'page_title'  => 'Widget Managaer',
-            //     'menu_title'  => 'Widget',
-            //     'capability'  => 'manage_options',
-            //     'menu_slug'   => 'widget_manager',
-            //     'callback'    => array($this->callbacks,'widgetTemplates')  
-            // ),
+           
         );    
     }
 

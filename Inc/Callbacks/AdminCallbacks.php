@@ -74,6 +74,33 @@ use Cptmmr\Base\BaseController;
         return require_once "$this->plugin_path./templates/templatesdashboard.php";
     }
 
+    /**
+     *  Calling logindashboard.php file
+     */
+
+    public function loginTemplates()
+    {
+        return require_once "$this->plugin_path./templates/logindashboard.php";
+    }
+
+    /**
+     *  Calling membershipdashboard.php file
+     */
+
+    public function membershipTemplates()
+    {
+        return require_once "$this->plugin_path./templates/membershipdashboard.php";
+    }
+    
+    /**
+     *  Calling chatdashboard.php file
+     */
+
+    public function chatTemplates()
+    {
+        return require_once "$this->plugin_path./templates/chatdashboard.php";
+    }    
+
     //   public function cptmrOptionsGroup( $input )
     //   {
     //       return $input;
