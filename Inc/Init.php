@@ -20,7 +20,8 @@ final class Init {
             Base\TaxonomyManagerController::class,
             Base\MediaWidgetController::class,
             Base\GalleryManagerController::class,
-            Base\TestimonialManagerController::class
+            Base\TestimonialManagerController::class,
+            Base\TemplatesManagerController::class
         ];
     }
     

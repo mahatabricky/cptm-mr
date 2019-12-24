@@ -19,51 +19,60 @@ use Cptmmr\Base\BaseController;
          return require_once "$this->plugin_path./templates/admin.php";
      }
 
-     /**
-      * Calling Cpt.php file
-      */
+    /**
+     * Calling Cpt.php file
+    */
 
-     public function cptTemplates()
-     {
-        return require_once "$this->plugin_path./templates/Cpt.php";
-     }
+    public function cptTemplates()
+    {
+    return require_once "$this->plugin_path./templates/Cpt.php";
+    }
 
-      /**
-      * Calling taxonomydashboard.php file
-      */
+    /**
+     * Calling taxonomydashboard.php file
+    */
 
-      public function taxonomiesTemplates()
-      {
-          return require_once "$this->plugin_path./templates/taxonomydashboard.php";
-      }
+    public function taxonomiesTemplates()
+    {
+        return require_once "$this->plugin_path./templates/taxonomydashboard.php";
+    }
       
-      /**
-      * Calling widgetdashboard.php file
-      */
+    /**
+     * Calling widgetdashboard.php file
+    */
 
-      public function widgetTemplates()
-      {
-          return require_once "$this->plugin_path./templates/widgetdashboard.php";
-      }
+    public function widgetTemplates()
+    {
+        return require_once "$this->plugin_path./templates/widgetdashboard.php";
+    }
 
-      /**
-       * Calling gallerydashboard.php file
-       * 
-       */
+    /**
+     * Calling gallerydashboard.php file
+     * 
+     */
 
-       public function galleryTemplates()
-       {
-           return require_once "$this->plugin_path./templates/gallerydashboard.php";
-       }
+    public function galleryTemplates()
+    {
+        return require_once "$this->plugin_path./templates/gallerydashboard.php";
+    }
       
-       /**
-        *  Calling testimonialdashboard.php file
-        */
+    /**
+    *  Calling testimonialdashboard.php file
+    */
 
-        public function testimonialTemplates()
-        {
-            return require_once "$this->plugin_path./templates/testimonialTemplates";
-        }
+    public function testimonialTemplates()
+    {
+        return require_once "$this->plugin_path./templates/testimonialTemplates";
+    }
+
+    /**
+     *  Calling templatesdashboard.php file
+     */
+
+    public function templateTemplates()
+    {
+        return require_once "$this->plugin_path./templates/templatesdashboard.php";
+    }
 
     //   public function cptmrOptionsGroup( $input )
     //   {
