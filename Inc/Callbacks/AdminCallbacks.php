@@ -62,7 +62,7 @@ use Cptmmr\Base\BaseController;
 
     public function testimonialTemplates()
     {
-        return require_once "$this->plugin_path./templates/testimonialTemplates";
+        return require_once "$this->plugin_path./templates/testimonialdashboard.php";
     }
 
     /**

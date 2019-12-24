@@ -42,25 +42,25 @@ class TaxonomyManagerController extends BaseController
 
         $this->settings->addSubPages( $this->subpages )->register();
 
-        add_action('init', array( $this,'activate'));
+       // add_action('init', array( $this,'activate'));
 
     }
 
-    public function activate()
-    {
-         register_post_type( 'movies',
-    // CPT Options
-                array(
-                    'labels' => array(
-                        'name' => __( 'Movies' ),
-                        'singular_name' => __( 'Movie' )
-                    ),
-                    'public' => true,
-                    'has_archive' => true,
-                    'rewrite' => array('slug' => 'movies'),
-                )
-            );
-    }
+    // public function activate()
+    // {
+    //      register_post_type( 'movies',
+    // // CPT Options
+    //             array(
+    //                 'labels' => array(
+    //                     'name' => __( 'Movies' ),
+    //                     'singular_name' => __( 'Movie' )
+    //                 ),
+    //                 'public' => true,
+    //                 'has_archive' => true,
+    //                 'rewrite' => array('slug' => 'movies'),
+    //             )
+    //         );
+    // }
 
     public function setSubPages()
     {
