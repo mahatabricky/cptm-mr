@@ -12,6 +12,7 @@ final class Init {
      */
 
     public static function get_services(){
+
         return [
             Pages\Dashboard::class, // Register Dashboard class
             Base\Enqueue::class, // Register Enqueue class to load all scripts files
@@ -26,6 +27,7 @@ final class Init {
             Base\MembershipManagerController::class,
             Base\ChatManagerController::class
         ];
+
     }
     
     /**
@@ -51,8 +53,10 @@ final class Init {
 
     private static function instantiate( $class )
     {
+        
         $service = new $class();
         return $service;
+        
     }
 
     
