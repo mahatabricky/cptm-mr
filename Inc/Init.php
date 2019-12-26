@@ -35,7 +35,7 @@ final class Init {
      *and call the register() method if it exixts
      * @return
      */
-    
+
     public static function register_services(){
         
           foreach( self::get_services() as $class){
@@ -54,8 +54,7 @@ final class Init {
      */
 
     private static function instantiate( $class )
-    {
-        
+    {        
         $service = new $class();
         return $service;
 
