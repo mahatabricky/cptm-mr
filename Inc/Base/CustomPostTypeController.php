@@ -65,12 +65,18 @@ class CustomPostTypeController extends BaseController
 
     public function storeCustomPostType()
     {
-        $this->custom_post_type [] = array(
+       $this->custom_post_type  = array(
+           array(
 
-            'name'  => 'Mahatab',
-            'singular' => 'Mahatab',
+            'post_type'     => 'Mahatab',
+            'name'          => 'Films',
+            'singular_name' => 'Film',
+            'public'        => true,
+            'has_archive'   => true
         
-        );
+            )
+        ); 
+        
     } 
 
     /**
@@ -79,16 +85,23 @@ class CustomPostTypeController extends BaseController
 
     public function registerCustomPostType()
     {
-        register_post_type( 'Movie', array(
+     foreach( $this->custom_post_type as $post_type){
 
-            'labels' => array (
-                'name' => 'Movies',
-                'singular' => 'Movie'
-            ),
-            'public' => true,
-            'has_archive' => true,
+            register_post_type( $post_type['post_type'], array(
 
-        ) );
+                'labels' => array (
+                    'name' => $post_type['name'],
+                    'singular' => $post_type['singular_name']
+                ),
+                'public' => $post_type['public'],
+                'has_archive' => $post_type['has_archive'],
+
+            ) 
+        );
+
+     }
+
+        
     }
 
 
