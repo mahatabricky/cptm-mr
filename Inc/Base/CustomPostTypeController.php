@@ -141,16 +141,81 @@ class CustomPostTypeController extends BaseController
 
     public function storeCustomPostType()
     {
-       $this->custom_post_type  = array(
-           array(
-            'post_type'     => 'Mahatab',
-            'name'          => 'Films',
-            'singular_name' => 'Film',
-            'public'        => true,
-            'has_archive'   => true
-        
-           )
-        ); 
+    //    $this->custom_post_type  = array(
+    //        array(
+    //         'post_type'     => 'Mahatab',
+    //         'name'          => 'Films',
+    //         'singular_name' => 'Film',
+    //         'public'        => true,
+    //         'has_archive'   => true       
+    //        )
+    //     ); 
+
+        $this->custom_post_type []= array(
+            'post_type'   => 'test',
+            'name' => '',
+            'singular_name' => '',
+            'add_new' => '',
+            'add_new_item' => '',
+            'edit_item' => '',
+            'new_item' => '',
+            'view_item' => '',
+            'view_items' => '',
+            'search_items' => '',
+            'search_items' => '',
+            'search_items' => '',
+            'search_items' => '',
+            'search_items'  => '',
+            'archives' => '',
+            'attributes' => '',
+            'insert_into_item' => '',
+            'uploaded_to_this_item' => '',
+            'featured_image' => '',
+            'set_featured_image' => '',
+            'remove_featured_image' => '',
+            'use_featured_image' => '',
+            'menu_name' => '',
+            'filter_items_list' => '',
+            'items_list_navigation' => '',
+            'items_list' => '',
+            'item_published' => '',
+            'item_published_privately' => '',
+            'item_reverted_to_draft' => '',
+            'item_scheduled' => '',
+            'item_updated' => '',
+            'description' => '',
+            'public' => '',
+            'hierarchical' => '',
+            'exclude_from_search' => '',
+            'publicly_queryable' => '',
+            'show_ui' => '',
+            'show_in_menu' => '',
+            'show_in_nav_menus' => '',
+            'show_in_admin_bar' => '',
+            'show_in_admin_bar' => '',
+            'rest_base' => '',
+            'rest_controller_class' => '',
+            'menu_position' => '',
+            'menu_icon' => '',
+            'capability_type' => '',
+            'capabilities' => '',
+            'map_meta_cap' => '',
+            'map_meta_cap' => '',
+            'register_meta_box_cb' => '',
+            'taxonomies' => '',
+            'has_archive' => true,
+            'rewrite' => '',
+            'slug' => '',
+            'with_front' => '',
+            'feeds' => '',
+            'pages' => '',
+            'ep_mask' => '',
+            'query_var' => '',
+            'can_export' => '',
+            'delete_with_user' => '',
+            '_builtin' => '',
+            '_edit_link' => '',            
+        );
         
     } 
 
@@ -160,6 +225,10 @@ class CustomPostTypeController extends BaseController
 
     public function registerCustomPostType()
     {
+        echo "<pre>";
+        var_dump($this->custom_post_type);
+        echo "</pre>";
+
      foreach( $this->custom_post_type as $post_type){
 
             register_post_type( $post_type['post_type'], array(
