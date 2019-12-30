@@ -59,6 +59,75 @@ class CustomPostTypeController extends BaseController
         );    
     }
 
+/**
+ * Set custom post type settings
+ *
+ * @return void
+ */
+
+    public function setSettings()
+    {
+        
+        $args = array(
+                  array(
+                    'option_group' => 'cptmr_plugin_settings',
+                    'option_name'  => 'cptmmr_plugin',
+                    'callback'     => array( $this->callbacks_mngr , 'checkboxSanitize' )
+                    )
+               );
+
+        $this->settings->setSettings( $args );
+    }
+
+    /**
+     * Set custom post type setttings section
+     * @return void 
+     */
+
+    public function setSections()
+    {
+        $args = array(
+            array(
+                'id'       => 'cptmr_admin_index',
+                'title'    => 'Settings Manager',
+                'callback' => array( $this->callbacks_mngr , 'adminSectionManager' ),
+                'page'     => 'cptmmr_plugin'
+            )
+        );
+
+        $this->settings->setSections( $args );
+    }    
+
+    /**
+     * Set fields for storing custom post type
+     *
+     * @return void
+     */
+    public function setFields()
+    {
+        
+        $args = array();
+
+        foreach ( $this->managers as $key => $value ){
+
+            $args[] = array(
+                'id'       => $key,
+                'title'    => $value,
+                'callback' => array( $this->callbacks_mngr , 'checkboxField' ),
+                'page'     => 'cptmmr_plugin',
+                'section'  => 'cptmr_admin_index',
+                'args'     => array(
+                    'option_name'=> 'cptmmr_plugin',
+                    'labels_for' => $key,
+                    'class'      => 'ui-toggle',
+                    'data-toggle'=> 'toggle'
+                )
+            );
+        }       
+
+        $this->settings->setFields( $args );
+    }     
+
     /**
      * Retrive Custom post type option
      */
@@ -73,15 +142,7 @@ class CustomPostTypeController extends BaseController
             'public'        => true,
             'has_archive'   => true
         
-           ),
-           array(
-            'post_type'     => 'Mahatab_movies',
-            'name'          => 'Movies',
-            'singular_name' => 'Movie',
-            'public'        => true,
-            'has_archive'   => true
-        
-            )
+           )
         ); 
         
     } 
