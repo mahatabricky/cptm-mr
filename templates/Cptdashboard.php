@@ -15,11 +15,11 @@
 
             <form method="post" action="options.php">
 
-               <!-- <?php 
-                        settings_fields('cptmr_plugin_settings');
-                        do_settings_sections('cptmmr_plugin');
+               <?php 
+                        settings_fields('cptmmr_cpt');
+                        do_settings_sections('cptmmr_cpt_settings');
                         submit_button();
-               ?> -->
+               ?>
 
             </form>
 

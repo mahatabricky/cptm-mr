@@ -6,6 +6,7 @@ namespace Cptmmr\Base;
 
 use Cptmmr\Base\BaseController;
 use Cptmmr\Api\SettingsApi;
+use Cptmmr\Callbacks\CptCallbacks;
 use Cptmmr\Callbacks\AdminCallbacks;
 
 class CustomPostTypeController extends BaseController
@@ -28,9 +29,17 @@ class CustomPostTypeController extends BaseController
 
         $this->callbacks = new AdminCallbacks();
 
+        $this->cpt_callbacks = new CptCallbacks();
+
         $this->setSubPages();
 
         $this->settings->addSubPages( $this->subpages )->register();
+
+        $this->setSettings();
+
+        $this->setSections();
+
+        $this->setFields();
 
         $this->storeCustomPostType();
 
@@ -71,8 +80,8 @@ class CustomPostTypeController extends BaseController
         $args = array(
                   array(
                     'option_group' => 'cptmr_cpt_settings',
-                    'option_name'  => 'cptmmr_cpt_settings',
-                    'callback'     => array( $this->callbacks_mngr , 'checkboxSanitize' )
+                    'option_name'  => 'cptmmr_cpt',
+                    'callback'     => array( $this->cpt_callbacks , 'cptSanitize' )
                     )
                );
 
@@ -90,7 +99,7 @@ class CustomPostTypeController extends BaseController
             array(
                 'id'       => 'cptmr_cpt_index',
                 'title'    => 'Custom Post Type Manager',
-                'callback' => array( $this->callbacks_mngr , 'adminSectionManager' ),
+                'callback' => array( $this->cpt_callbacks , 'cptSectionManager' ),
                 'page'     => 'cpt_manager'
             )
         );
@@ -106,24 +115,22 @@ class CustomPostTypeController extends BaseController
     public function setFields()
     {
         
-        $args = array();
-
-        foreach ( $this->managers as $key => $value ){
-
-            $args[] = array(
-                'id'       => $key,
-                'title'    => $value,
-                'callback' => array( $this->callbacks_mngr , 'checkboxField' ),
-                'page'     => 'cptmmr_plugin',
-                'section'  => 'cptmr_admin_index',
+        $args = array(
+            array(
+                'id'       => 'post_type',
+                'title'    => 'Custom Post Type ID',
+                'callback' => array( $this->cpt_callbacks , 'textField' ),
+                'page'     => 'cpt_manager',
+                'section'  => 'cptmr_cpt_index',
                 'args'     => array(
-                    'option_name'=> 'cptmmr_plugin',
-                    'labels_for' => $key,
+                    'option_name'=> 'cptmmr_cpt',
+                    'labels_for' => 'post_type',
                     'class'      => 'ui-toggle',
                     'data-toggle'=> 'toggle'
                 )
-            );
-        }       
+            ),
+        );
+     
 
         $this->settings->setFields( $args );
     }     
