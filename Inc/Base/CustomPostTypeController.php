@@ -78,6 +78,7 @@ class CustomPostTypeController extends BaseController
     public function registerCustomPostType()
     {
 
+        
     }
 
 
