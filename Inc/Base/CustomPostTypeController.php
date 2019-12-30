@@ -32,6 +32,8 @@ class CustomPostTypeController extends BaseController
 
         $this->settings->addSubPages( $this->subpages )->register();
 
+        $this->storeCustomPostType();
+
         if ( !empty ( $this->custom_post_type )){
 
              add_action('init', array( $this,'registerCustomPostType'));
