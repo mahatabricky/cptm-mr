@@ -77,8 +77,16 @@ class CustomPostTypeController extends BaseController
 
     public function registerCustomPostType()
     {
+        register_post_type( 'Movie', array(
 
-        
+            'labels' => array (
+                'name' => 'Movies',
+                'singular' => 'Movie'
+            ),
+            'public' => true,
+            'has_archive' => true,
+
+        ) );
     }
 
 
