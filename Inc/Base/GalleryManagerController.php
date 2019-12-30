@@ -20,17 +20,7 @@ class GalleryManagerController extends BaseController
     public function register()
     {
 
-        $managers = array_keys ( $this->managers);
-
-        $cpt_option = get_option('cptmmr_plugin');
-
-        $cpt_checked = ($cpt_option[$managers['3']]) ? true : false;  // 3 index indicates gallery_manager keys
-
-        if(! $cpt_checked){
-
-            return;
-
-        }
+        if ( !$this->activated('gallery_manager') ) return;
 
         $this->settings = new SettingsApi();
 

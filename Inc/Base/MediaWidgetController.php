@@ -20,19 +20,7 @@ class MediaWidgetController extends BaseController
     public function register()
     {
 
-        $managers = array_keys ( $this->managers);
-
-       // var_dump($managers);
-
-        $cpt_option = get_option('cptmmr_plugin');
-
-        $cpt_checked = ($cpt_option[$managers['2']]) ? true : false;  // 2 index indicates media_manager keys
-
-        if(! $cpt_checked){
-
-            return;
-
-        }
+        if ( !$this->activated('media_widget') ) return;
 
         $this->settings = new SettingsApi();
 
@@ -46,21 +34,7 @@ class MediaWidgetController extends BaseController
 
     }
 
-    // public function activate()
-    // {
-    //      register_post_type( 'movies',
-    // // CPT Options
-    //             array(
-    //                 'labels' => array(
-    //                     'name' => __( 'Movies' ),
-    //                     'singular_name' => __( 'Movie' )
-    //                 ),
-    //                 'public' => true,
-    //                 'has_archive' => true,
-    //                 'rewrite' => array('slug' => 'movies'),
-    //             )
-    //         );
-    // }
+
 
     public function setSubPages()
     {

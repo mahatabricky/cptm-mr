@@ -13,6 +13,8 @@ class CustomPostTypeController extends BaseController
 
     public $subpages = array();
 
+    public $custom_post_type = array();
+
     public $settings ;
 
     public $callbacks ;
@@ -20,17 +22,7 @@ class CustomPostTypeController extends BaseController
     public function register()
     {
 
-        $managers = array_keys ( $this->managers);
-
-        $cpt_option = get_option('cptmmr_plugin');
-
-        $cpt_checked = ($cpt_option[$managers['0']]) ? true : false;  // 0 index indicates cpt_manager keys
-
-        if(! $cpt_checked){
-
-            return;
-
-        }
+        if ( !$this->activated('cpt_manager') ) return;
 
         $this->settings = new SettingsApi();
 
@@ -40,7 +32,11 @@ class CustomPostTypeController extends BaseController
 
         $this->settings->addSubPages( $this->subpages )->register();
 
-       // add_action('init', array( $this,'activate'));
+        if ( !empty ( $this->custom_post_type )){
+
+             add_action('init', array( $this,'registerCustomPostType'));
+
+        }
 
     }
 
@@ -60,6 +56,31 @@ class CustomPostTypeController extends BaseController
            
         );    
     }
+
+    /**
+     * Retrive Custom post type option
+     */
+
+    public function storeCustomPostType()
+    {
+        $this->custom_post_type [] = array(
+
+            'name'  => 'Mahatab',
+            'singular' => 'Mahatab',
+        
+        );
+    } 
+
+    /**
+     * Register Custom Post Type
+     */
+
+    public function registerCustomPostType()
+    {
+
+    }
+
+
 
 
        

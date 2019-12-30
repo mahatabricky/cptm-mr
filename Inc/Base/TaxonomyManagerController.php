@@ -20,19 +20,7 @@ class TaxonomyManagerController extends BaseController
     public function register()
     {
 
-        $managers = array_keys ( $this->managers);
-
-        $cpt_option = get_option('cptmmr_plugin');
-
-      //  var_dump($managers);
-
-        $cpt_checked = ($cpt_option[$managers['1']]) ? true : false;  // 1 index indicates taxonomy_manager keys
-
-        if(! $cpt_checked){
-
-            return;
-
-        }
+        if ( !$this->activated('taxonomy_manager') ) return;
 
         $this->settings = new SettingsApi();
 

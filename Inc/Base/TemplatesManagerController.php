@@ -20,17 +20,7 @@ class TemplatesManagerController extends BaseController
     public function register()
     {
 
-        $managers = array_keys ( $this->managers);
-
-        $cpt_option = get_option('cptmmr_plugin');
-
-        $cpt_checked = ($cpt_option[$managers['5']]) ? true : false;  // 5 index indicates templatess_manager keys
-
-        if(! $cpt_checked){
-
-            return;
-
-        }
+        if ( !$this->activated('templates_manager') ) return;
 
         $this->settings = new SettingsApi();
 

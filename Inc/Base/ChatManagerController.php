@@ -20,17 +20,7 @@ class ChatManagerController extends BaseController
     public function register()
     {
 
-        $managers = array_keys ( $this->managers);
-
-        $cpt_option = get_option('cptmmr_plugin');
-
-        $cpt_checked = ($cpt_option[$managers['8']]) ? true : false;  // 8 index indicates chat_manager keys
-
-        if(! $cpt_checked){
-
-            return;
-
-        }
+        if ( !$this->activated('chat_manager') ) return;
 
         $this->settings = new SettingsApi();
 

@@ -45,6 +45,20 @@
 
      }
 
+    /**
+    * Checked Specific option is activated 
+    *  @param string $key
+    *  return boolean
+    */
+
+    public function activated ( $key )
+    {
+
+       $option = get_option( 'cptmmr_plugin' );
+
+       return isset( $option[ $key ]) ? $option[ $key ] : false;
+    }
+
 
 
  }
