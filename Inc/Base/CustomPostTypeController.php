@@ -70,8 +70,8 @@ class CustomPostTypeController extends BaseController
         
         $args = array(
                   array(
-                    'option_group' => 'cptmr_plugin_settings',
-                    'option_name'  => 'cptmmr_plugin',
+                    'option_group' => 'cptmr_cpt_settings',
+                    'option_name'  => 'cptmmr_cpt_settings',
                     'callback'     => array( $this->callbacks_mngr , 'checkboxSanitize' )
                     )
                );
@@ -88,10 +88,10 @@ class CustomPostTypeController extends BaseController
     {
         $args = array(
             array(
-                'id'       => 'cptmr_admin_index',
-                'title'    => 'Settings Manager',
+                'id'       => 'cptmr_cpt_index',
+                'title'    => 'Custom Post Type Manager',
                 'callback' => array( $this->callbacks_mngr , 'adminSectionManager' ),
-                'page'     => 'cptmmr_plugin'
+                'page'     => 'cpt_manager'
             )
         );
 
