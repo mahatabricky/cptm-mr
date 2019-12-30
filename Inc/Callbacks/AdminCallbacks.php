@@ -25,7 +25,7 @@ use Cptmmr\Base\BaseController;
 
     public function cptTemplates()
     {
-    return require_once "$this->plugin_path./templates/Cpt.php";
+    return require_once "$this->plugin_path./templates/Cptdashboard.php";
     }
 
     /**
