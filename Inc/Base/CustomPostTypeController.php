@@ -67,10 +67,17 @@ class CustomPostTypeController extends BaseController
     {
        $this->custom_post_type  = array(
            array(
-
             'post_type'     => 'Mahatab',
             'name'          => 'Films',
             'singular_name' => 'Film',
+            'public'        => true,
+            'has_archive'   => true
+        
+           ),
+           array(
+            'post_type'     => 'Mahatab_movies',
+            'name'          => 'Movies',
+            'singular_name' => 'Movie',
             'public'        => true,
             'has_archive'   => true
         
