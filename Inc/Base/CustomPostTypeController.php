@@ -12,13 +12,13 @@ use Cptmmr\Callbacks\AdminCallbacks;
 class CustomPostTypeController extends BaseController
 {
 
-    public $subpages = array();
-
-    public $custom_post_type = array();
-
     public $settings ;
 
     public $callbacks ;
+
+    public $subpages = array();
+
+    public $custom_post_type = array();
 
     public function register()
     {
@@ -68,15 +68,80 @@ class CustomPostTypeController extends BaseController
         );    
     }
 
-/**
- * Set custom post type settings
- *
- * @return void
- */
+// /**
+//  * Set custom post type settings
+//  *
+//  * @return void
+//  */
 
-    public function setSettings()
-    {
+//     public function setSettings()
+//     {
         
+//         $args = array(
+//                   array(
+//                     'option_group' => 'cptmr_cpt_settings',
+//                     'option_name'  => 'cptmmr_cpt',
+//                     'callback'     => array( $this->cpt_callbacks , 'cptSanitize' )
+//                     )
+//                );
+
+//         $this->settings->setSettings( $args );
+//     }
+
+//     /**
+//      * Set custom post type setttings section
+//      * @return void 
+//      */
+
+//     public function setSections()
+//     {
+//         $args = array(
+//             array(
+//                 'id'       => 'cptmr_cpt_index',
+//                 'title'    => 'Custom Post Type Manager',
+//                 'callback' => array( $this->cpt_callbacks , 'cptSectionManager' ),
+//                 'page'     => 'cptmmr_cpt'
+//             )
+//         );
+
+//         $this->settings->setSections( $args );
+//     }    
+
+//     /**
+//      * Set fields for storing custom post type
+//      *
+//      * @return void
+//      */
+//     public function setFields()
+//     {
+        
+//         $args = array(
+//             array(
+//                 'id'       => 'post_type',
+//                 'title'    => 'Custom Post Type ID',
+//                 'callback' => array( $this->cpt_callbacks , 'textField' ),
+//                 'page'     => 'cpt_manager',
+//                 'section'  => 'cptmr_cpt_index',
+//                 'args'     => array(
+//                     'option_name'=> 'cptmmr_cpt',
+//                     'labels_for' => 'post_type',
+//                     //'class'      => 'ui-toggle',
+//                    // 'data-toggle'=> 'toggle'
+//                 ),
+//             ),
+//         );   
+//         // var_dump($args);
+//         $this->settings->setFields( $args );
+//     }   
+
+    /**
+     * Set custom post type settings
+     *
+     * @return void
+     */
+    
+    public function setSettings()
+    {    
         $args = array(
                   array(
                     'option_group' => 'cptmr_cpt_settings',
@@ -106,7 +171,7 @@ class CustomPostTypeController extends BaseController
 
         $this->settings->setSections( $args );
     }    
-
+    
     /**
      * Set fields for storing custom post type
      *
@@ -117,23 +182,24 @@ class CustomPostTypeController extends BaseController
         
         $args = array(
             array(
-                'id'       => 'post_type',
-                'title'    => 'Custom Post Type ID',
+                'id'       => 'post_type_name',
+                'title'    => 'Custom  Post Type',
                 'callback' => array( $this->cpt_callbacks , 'textField' ),
                 'page'     => 'cpt_manager',
                 'section'  => 'cptmr_cpt_index',
                 'args'     => array(
                     'option_name'=> 'cptmmr_cpt',
-                    'labels_for' => 'post_type',
-                    'class'      => 'ui-toggle',
-                    'data-toggle'=> 'toggle'
+                    'labels_for' => 'post_type_name',
+                    //'class'      => 'ui-toggle',
+                   // 'data-toggle'=> 'toggle'
                 )
-            ),
+            )
         );
-     
 
         $this->settings->setFields( $args );
+       // var_dump($this->settings->setFields( $args ));
     }     
+
 
     /**
      * Retrive Custom post type option
@@ -225,9 +291,9 @@ class CustomPostTypeController extends BaseController
 
     public function registerCustomPostType()
     {
-        echo "<pre>";
-        var_dump($this->custom_post_type);
-        echo "</pre>";
+        // echo "<pre>";
+        // var_dump($this->custom_post_type);
+        // echo "</pre>";
 
      foreach( $this->custom_post_type as $post_type){
 

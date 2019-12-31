@@ -18,9 +18,9 @@ class CptCallbacks {
         echo "Fillup the form to register new custom post type";
     }
 
-    public function textField()
+    public function textField( $args )
     {
-        echo '<input type="text" name="lname"><br>';
+        echo '<input type="text" name="post_type_name" id="post_type_name" placeholder="Eg.post type">';
     }
 
     public function checkboxField( $args )
