@@ -76,6 +76,7 @@ class Dashboard extends BaseController
                );
 
         $this->settings->setSettings( $args );
+
     }
 
     public function setSections()

@@ -16,7 +16,7 @@
             <form method="post" action="options.php">
 
             <?php 
-                        settings_fields('cptmr_cpt_settings');
+                        settings_fields('cptmmr_cpt_settings');
                         do_settings_sections('cpt_manager');
                         submit_button();
             ?>
