@@ -146,7 +146,19 @@ class CustomPostTypeController extends BaseController
                         //'class'      => 'ui-toggle',
                        // 'data-toggle'=> 'toggle'
                     )
-                )
+                    ),
+                array(
+                    'id'        => 'singular_name',
+                    'title'     => 'Singular Name',
+                    'callback'  => array( $this->cpt_callbacks , 'textField'),
+                    'page'      => 'cpt_manager',
+                    'section'   => 'cptmr_cpt_index',
+                    'args'      => array(
+                        'option_name'   => 'cptmmr_cpt',
+                        'labels_for'    => 'Singular Name',
+                        'title'         => 'Singular Name'
+                    )
+                ) //description
         );
 
         $this->settings->setFields( $args );
