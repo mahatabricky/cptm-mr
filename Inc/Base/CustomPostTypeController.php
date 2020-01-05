@@ -51,7 +51,9 @@ class CustomPostTypeController extends BaseController
 
     }
 
-
+    /**
+     * Generate subpage for custom post type 
+     */
     public function setSubPages()
     {
 
@@ -66,6 +68,7 @@ class CustomPostTypeController extends BaseController
             ),
            
         );    
+
     }
 
     /**
