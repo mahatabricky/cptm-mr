@@ -1,7 +1,9 @@
 <?php
+
 /**
  * @package cptm-mr
  */
+
 namespace Cptmmr\Base;
 
 use Cptmmr\Base\BaseController;
@@ -12,9 +14,9 @@ use Cptmmr\Callbacks\AdminCallbacks;
 class CustomPostTypeController extends BaseController
 {
 
-    public $settings ;
+    public $settings;
 
-    public $callbacks ;
+    public $callbacks;
 
     public $subpages = array();
 
@@ -23,7 +25,7 @@ class CustomPostTypeController extends BaseController
     public function register()
     {
 
-        if ( !$this->activated('cpt_manager') ) return;
+        if (!$this->activated('cpt_manager')) return;
 
         $this->settings = new SettingsApi();
 
@@ -33,7 +35,7 @@ class CustomPostTypeController extends BaseController
 
         $this->setSubPages();
 
-        $this->settings->addSubPages( $this->subpages )->register();
+        $this->settings->addSubPages($this->subpages)->register();
 
         $this->setSettings();
 
@@ -43,12 +45,10 @@ class CustomPostTypeController extends BaseController
 
         $this->storeCustomPostType();
 
-        if ( !empty ( $this->custom_post_type )){
+        if (!empty($this->custom_post_type)) {
 
-             add_action('init', array( $this,'registerCustomPostType'));
-
+            add_action('init', array($this, 'registerCustomPostType'));
         }
-
     }
 
     /**
@@ -57,18 +57,17 @@ class CustomPostTypeController extends BaseController
     public function setSubPages()
     {
 
-         $this->subpages = array(
+        $this->subpages = array(
             array(
                 'parent_slug' => 'cptmmr_plugin',
                 'page_title'  => 'Custom Post Type',
                 'menu_title'  => 'CPT Manager',
                 'capability'  => 'manage_options',
                 'menu_slug'   => 'cpt_manager',
-                'callback'    => array($this->callbacks,'cptTemplates')  
+                'callback'    => array($this->callbacks, 'cptTemplates')
             ),
-           
-        );    
 
+        );
     }
 
     /**
@@ -76,19 +75,18 @@ class CustomPostTypeController extends BaseController
      *
      * @return void
      */
-    
+
     public function setSettings()
-    {    
+    {
         $args = array(
-                  array(
-                    'option_group' => 'cptmmr_cpt_settings',
-                    'option_name'  => 'cptmmr_cpt',
-                    'callback'     => array( $this->cpt_callbacks , 'cptSanitize' )
-                    )
-               );
+            array(
+                'option_group' => 'cptmmr_cpt_settings',
+                'option_name'  => 'cptmmr_cpt',
+                'callback'     => array($this->cpt_callbacks, 'cptSanitize')
+            )
+        );
 
-        $this->settings->setSettings( $args );
-
+        $this->settings->setSettings($args);
     }
 
     /**
@@ -102,13 +100,13 @@ class CustomPostTypeController extends BaseController
             array(
                 'id'       => 'cptmr_cpt_index',
                 'title'    => 'Custom Post Type Manager',
-                'callback' => array( $this->cpt_callbacks , 'cptSectionManager' ),
+                'callback' => array($this->cpt_callbacks, 'cptSectionManager'),
                 'page'     => 'cpt_manager'
             )
         );
 
-        $this->settings->setSections( $args );
-    }    
+        $this->settings->setSections($args);
+    }
 
     /**
      * Set fields for storing custom post type
@@ -117,53 +115,66 @@ class CustomPostTypeController extends BaseController
      */
     public function setFields()
     {
-        
+
         $args = array(
             array(
                 'id'       => 'post_type_name',
                 'title'    => 'Post Type',
-                'callback' => array( $this->cpt_callbacks , 'textField' ),
+                'callback' => array($this->cpt_callbacks, 'textField'),
                 'page'     => 'cpt_manager',
                 'section'  => 'cptmr_cpt_index',
                 'args'     => array(
-                    'option_name'=> 'cptmmr_cpt',
+                    'option_name' => 'cptmmr_cpt',
                     'labels_for' => 'post_type_name',
                     'title'     => 'Post Type',
                     //'class'      => 'ui-toggle',
-                   // 'data-toggle'=> 'toggle'
+                    // 'data-toggle'=> 'toggle'
                 )
-                ),
-                array(
-                    'id'       => 'name',
-                    'title'    => 'Name',
-                    'callback' => array( $this->cpt_callbacks , 'textField' ),
-                    'page'     => 'cpt_manager',
-                    'section'  => 'cptmr_cpt_index',
-                    'args'     => array(
-                        'option_name'=> 'cptmmr_cpt',
-                        'labels_for' => 'name',
-                        'title'      => 'Name',
-                        //'class'      => 'ui-toggle',
-                       // 'data-toggle'=> 'toggle'
-                    )
-                    ),
-                array(
-                    'id'        => 'singular_name',
-                    'title'     => 'Singular Name',
-                    'callback'  => array( $this->cpt_callbacks , 'textField'),
-                    'page'      => 'cpt_manager',
-                    'section'   => 'cptmr_cpt_index',
-                    'args'      => array(
-                        'option_name'   => 'cptmmr_cpt',
-                        'labels_for'    => 'Singular Name',
-                        'title'         => 'Singular Name'
-                    )
-                ) //description
+            ),
+            array(
+                'id'       => 'name',
+                'title'    => 'Name',
+                'callback' => array($this->cpt_callbacks, 'textField'),
+                'page'     => 'cpt_manager',
+                'section'  => 'cptmr_cpt_index',
+                'args'     => array(
+                    'option_name' => 'cptmmr_cpt',
+                    'labels_for' => 'name',
+                    'title'      => 'Name',
+                    //'class'      => 'ui-toggle',
+                    // 'data-toggle'=> 'toggle'
+                )
+            ),
+            array(
+                'id'        => 'singular_name',
+                'title'     => 'Singular Name',
+                'callback'  => array($this->cpt_callbacks, 'textField'),
+                'page'      => 'cpt_manager',
+                'section'   => 'cptmr_cpt_index',
+                'args'      => array(
+                    'option_name'   => 'cptmmr_cpt',
+                    'labels_for'    => 'Singular Name',
+                    'title'         => 'Singular Name'
+                )
+            ),
+            array(
+                'id'        => 'description',
+                'title'     => 'Description',
+                'callback'  => array( $this->cpt_callbacks , 'testAreaField'),
+                'page'      => 'cpt_manager',
+                'section'   => 'cptmr_cpt_index',
+                'args'      => array(
+                    'option_name'   => 'cptmmr_cpt',
+                    'labels_for'    => 'Description',
+                    'title'         => 'Description'
+                )
+
+            )     //description
         );
 
-        $this->settings->setFields( $args );
-       // var_dump($this->settings->setFields( $args ));
-    }     
+        $this->settings->setFields($args);
+        // var_dump($this->settings->setFields( $args ));
+    }
 
 
     /**
@@ -172,17 +183,17 @@ class CustomPostTypeController extends BaseController
 
     public function storeCustomPostType()
     {
-    //    $this->custom_post_type  = array(
-    //        array(
-    //         'post_type'     => 'Mahatab',
-    //         'name'          => 'Films',
-    //         'singular_name' => 'Film',
-    //         'public'        => true,
-    //         'has_archive'   => true       
-    //        )
-    //     ); 
+        //    $this->custom_post_type  = array(
+        //        array(
+        //         'post_type'     => 'Mahatab',
+        //         'name'          => 'Films',
+        //         'singular_name' => 'Film',
+        //         'public'        => true,
+        //         'has_archive'   => true       
+        //        )
+        //     ); 
 
-        $this->custom_post_type []= array(
+        $this->custom_post_type[] = array(
             'post_type'   => 'test',
             'name' => '',
             'singular_name' => '',
@@ -245,10 +256,9 @@ class CustomPostTypeController extends BaseController
             'can_export' => '',
             'delete_with_user' => '',
             '_builtin' => '',
-            '_edit_link' => '',            
+            '_edit_link' => '',
         );
-        
-    } 
+    }
 
     /**
      * Register Custom Post Type
@@ -260,28 +270,21 @@ class CustomPostTypeController extends BaseController
         // var_dump($this->custom_post_type);
         // echo "</pre>";
 
-     foreach( $this->custom_post_type as $post_type){
+        foreach ($this->custom_post_type as $post_type) {
 
-            register_post_type( $post_type['post_type'], array(
+            register_post_type(
+                $post_type['post_type'],
+                array(
 
-                'labels' => array (
-                    'name' => $post_type['name'],
-                    'singular' => $post_type['singular_name']
-                ),
-                'public' => $post_type['public'],
-                'has_archive' => $post_type['has_archive'],
+                    'labels' => array(
+                        'name' => $post_type['name'],
+                        'singular' => $post_type['singular_name']
+                    ),
+                    'public' => $post_type['public'],
+                    'has_archive' => $post_type['has_archive'],
 
-            ) 
-        );
-
-     }
-
-        
+                )
+            );
+        }
     }
-
-
-
-
-       
-    
 }

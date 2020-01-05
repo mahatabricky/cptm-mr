@@ -13,14 +13,24 @@ class CptCallbacks {
         return $input;
     }
 
+    /**
+     * Generate Custom post type section 
+     * @return String
+     */
+
     public function cptSectionManager()
     {
         echo "Fillup the form to register new custom post type";
     }
 
+    /**
+     * Generate text field 
+     * @param mixed $args
+     * @return  void
+     */
     public function textField( $args )
     {
-       // var_dump( $args );
+       
         $name = $args['labels_for'];
 
         $option_name = $args['option_name'];
@@ -30,6 +40,22 @@ class CptCallbacks {
         echo '<input type="text" name="'.$name.'" id="'.$name.'" placeholder="'.$title.'">';
     }
 
+    /**
+     * Generate Text Area field
+     * param array $args
+     * return void
+     */
+
+    public function testAreaField()
+    {
+
+    }
+
+    /**
+     *  Generate Checkbox field
+     * @param mixed $args
+     * @return void
+     */
     public function checkboxField( $args )
     {
         $name = $args['labels_for'];
