@@ -20,7 +20,14 @@ class CptCallbacks {
 
     public function textField( $args )
     {
-        echo '<input type="text" name="post_type_name" id="post_type_name" placeholder="Eg.post type">';
+       // var_dump( $args );
+        $name = $args['labels_for'];
+
+        $option_name = $args['option_name'];
+
+        $title = $args['title'];
+
+        echo '<input type="text" name="'.$name.'" id="'.$name.'" placeholder="'.$title.'">';
     }
 
     public function checkboxField( $args )

@@ -121,17 +121,32 @@ class CustomPostTypeController extends BaseController
         $args = array(
             array(
                 'id'       => 'post_type_name',
-                'title'    => 'Custom  Post Type',
+                'title'    => 'Post Type',
                 'callback' => array( $this->cpt_callbacks , 'textField' ),
                 'page'     => 'cpt_manager',
                 'section'  => 'cptmr_cpt_index',
                 'args'     => array(
                     'option_name'=> 'cptmmr_cpt',
                     'labels_for' => 'post_type_name',
+                    'title'     => 'Post Type',
                     //'class'      => 'ui-toggle',
                    // 'data-toggle'=> 'toggle'
                 )
-            )
+                ),
+                array(
+                    'id'       => 'name',
+                    'title'    => 'Name',
+                    'callback' => array( $this->cpt_callbacks , 'textField' ),
+                    'page'     => 'cpt_manager',
+                    'section'  => 'cptmr_cpt_index',
+                    'args'     => array(
+                        'option_name'=> 'cptmmr_cpt',
+                        'labels_for' => 'name',
+                        'title'      => 'Name',
+                        //'class'      => 'ui-toggle',
+                       // 'data-toggle'=> 'toggle'
+                    )
+                )
         );
 
         $this->settings->setFields( $args );
